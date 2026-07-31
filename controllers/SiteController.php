@@ -122,16 +122,20 @@ class SiteController extends Controller
         return false; // Jangan lupa return false jika parent beforeAction false
     }
 
-    public function actionIndex()
+   public function actionIndex()
     {
         if (Yii::$app->user->isGuest) {
             $this->layout = 'guest';
+
+            $currentDateTime = date('Y-m-d H:i:s');
 
             /*
             * Data profil.
             */
             $profil = ProfilList::find()
-                ->where(['id' => 18])
+                ->where([
+                    'id' => 18,
+                ])
                 ->one();
 
             /*
@@ -157,11 +161,7 @@ class SiteController extends Controller
                 ->all();
 
             /*
-            * Berita utama:
-            * - status harus publik
-            * - ditandai sebagai berita utama
-            * - tanggal publikasi tidak boleh melewati waktu sekarang
-            * - ambil yang paling baru
+            * Berita utama.
             */
             $beritaUtama = BeritaDp3akb::find()
                 ->with('kategori')
@@ -172,7 +172,7 @@ class SiteController extends Controller
                 ->andWhere([
                     '<=',
                     'tanggal_publish',
-                    date('Y-m-d H:i:s'),
+                    $currentDateTime,
                 ])
                 ->orderBy([
                     'tanggal_publish' => SORT_DESC,
@@ -181,8 +181,7 @@ class SiteController extends Controller
                 ->one();
 
             /*
-            * Kalau belum ada berita yang ditandai utama,
-            * ambil berita publik terbaru sebagai fallback.
+            * Fallback berita utama.
             */
             if ($beritaUtama === null) {
                 $beritaUtama = BeritaDp3akb::find()
@@ -193,7 +192,7 @@ class SiteController extends Controller
                     ->andWhere([
                         '<=',
                         'tanggal_publish',
-                        date('Y-m-d H:i:s'),
+                        $currentDateTime,
                     ])
                     ->orderBy([
                         'tanggal_publish' => SORT_DESC,
@@ -203,7 +202,7 @@ class SiteController extends Controller
             }
 
             /*
-            * Berita terbaru untuk kartu-kartu kecil.
+            * Berita terbaru.
             */
             $queryBeritaTerbaru = BeritaDp3akb::find()
                 ->with('kategori')
@@ -213,7 +212,7 @@ class SiteController extends Controller
                 ->andWhere([
                     '<=',
                     'tanggal_publish',
-                    date('Y-m-d H:i:s'),
+                    $currentDateTime,
                 ]);
 
             /*
@@ -236,15 +235,12 @@ class SiteController extends Controller
                 ->all();
 
             /*
-            * Berita populer berdasarkan jumlah hits.
+            * Berita populer.
             */
-            $currentDateTime = date('Y-m-d H:i:s');
-
-            $videoTerbaru = KontenEdukasi::find()
+            $beritaPopuler = BeritaDp3akb::find()
                 ->with('kategori')
                 ->where([
                     'status' => 1,
-                    'jenis_konten' => 'video',
                 ])
                 ->andWhere([
                     '<=',
@@ -252,52 +248,86 @@ class SiteController extends Controller
                     $currentDateTime,
                 ])
                 ->orderBy([
+                    'hits' => SORT_DESC,
                     'tanggal_publish' => SORT_DESC,
                     'id' => SORT_DESC,
                 ])
-                ->one();
+                ->limit(5)
+                ->all();
 
-            $infografisTerbaru = KontenEdukasi::find()
+            /*
+            * Semua konten edukasi aktif dan sudah dipublikasikan.
+            *
+            * Data diurutkan dari yang paling terbaru agar:
+            * - konten pertama pada setiap kategori adalah yang terbaru;
+            * - konten tambahan juga tetap berdasarkan data terbaru.
+            */
+            $semuaKontenEdukasi = KontenEdukasi::find()
                 ->with('kategori')
                 ->where([
                     'status' => 1,
-                    'jenis_konten' => 'infografis',
                 ])
                 ->andWhere([
-                    '<=',
-                    'tanggal_publish',
-                    $currentDateTime,
+                    'or',
+                    ['tanggal_publish' => null],
+                    [
+                        '<=',
+                        'tanggal_publish',
+                        $currentDateTime,
+                    ],
                 ])
                 ->orderBy([
                     'tanggal_publish' => SORT_DESC,
                     'id' => SORT_DESC,
                 ])
-                ->one();
+                ->all();
 
-            $ebookTerbaru = KontenEdukasi::find()
-                ->with('kategori')
-                ->where([
-                    'status' => 1,
-                    'jenis_konten' => 'ebook',
-                ])
-                ->andWhere([
-                    '<=',
-                    'tanggal_publish',
-                    $currentDateTime,
-                ])
-                ->orderBy([
-                    'tanggal_publish' => SORT_DESC,
-                    'id' => SORT_DESC,
-                ])
-                ->one();
+            $edukasiUtama = [];
+            $kategoriTerpilih = [];
+            $idTerpilih = [];
 
-            $edukasiUtama = array_values(
-                array_filter([
-                    $ebookTerbaru,
-                    $infografisTerbaru,
-                    $videoTerbaru,
-                ])
-            );
+            /*
+            * Tahap pertama:
+            * prioritaskan satu konten terbaru
+            * dari setiap kategori yang berbeda.
+            */
+            foreach ($semuaKontenEdukasi as $konten) {
+                $kategoriKey = $konten->kategori_id !== null
+                    ? 'kategori-' . $konten->kategori_id
+                    : 'tanpa-kategori';
+
+                if (!isset($kategoriTerpilih[$kategoriKey])) {
+                    $edukasiUtama[] = $konten;
+
+                    $kategoriTerpilih[$kategoriKey] = true;
+                    $idTerpilih[$konten->id] = true;
+                }
+
+                if (count($edukasiUtama) >= 3) {
+                    break;
+                }
+            }
+
+            /*
+            * Tahap kedua:
+            * jika kategori berbeda belum cukup tiga,
+            * isi dengan konten aktif terbaru lainnya
+            * dari kategori apa pun.
+            */
+            if (count($edukasiUtama) < 3) {
+                foreach ($semuaKontenEdukasi as $konten) {
+                    if (isset($idTerpilih[$konten->id])) {
+                        continue;
+                    }
+
+                    $edukasiUtama[] = $konten;
+                    $idTerpilih[$konten->id] = true;
+
+                    if (count($edukasiUtama) >= 3) {
+                        break;
+                    }
+                }
+            }
 
             return $this->render('guest/index', [
                 'profil' => $profil,
@@ -305,11 +335,15 @@ class SiteController extends Controller
                 'slides' => $slides,
 
                 /*
-                * Data berita baru.
+                * Data berita.
                 */
                 'beritaUtama' => $beritaUtama,
                 'beritaTerbaru' => $beritaTerbaru,
                 'beritaPopuler' => $beritaPopuler,
+
+                /*
+                * Konten edukasi beranda.
+                */
                 'edukasiUtama' => $edukasiUtama,
             ]);
         }
