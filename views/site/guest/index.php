@@ -366,201 +366,316 @@ $getNamaKategori = function ($berita) {
 </style>
 <main class="main">
     <section
-        id="hero-slider"
-        class="hero-slider section"
-    >
-        <div class="container-fluid p-0">
+    id="hero-slider"
+    class="hero-slider section"
+>
+    <div class="container-fluid p-0">
 
-            <div
-                id="dp3aSlider"
-                class="carousel slide"
-                data-bs-ride="carousel"
-                data-bs-interval="5000"
-            >
+        <div
+            id="dp3aSlider"
+            class="carousel slide"
+            data-bs-interval="5000"
+            data-bs-pause="hover"
+            data-bs-touch="true"
+        >
 
-          <?php if (!empty($slides)): ?>
+            <?php if (!empty($slides)): ?>
 
-              <div class="carousel-indicators">
-                  <?php foreach ($slides as $i => $s): ?>
-                      <button
-                          type="button"
-                          data-bs-target="#dp3aSlider"
-                          data-bs-slide-to="<?= $i ?>"
-                          class="<?= $i === 0 ? 'active' : '' ?>"
-                          aria-current="<?= $i === 0 ? 'true' : 'false' ?>"
-                          aria-label="Slide <?= $i + 1 ?>"
-                      ></button>
-                  <?php endforeach; ?>
-              </div>
+                <!-- Indicators -->
+                <?php if (count($slides) > 1): ?>
+                    <div class="carousel-indicators">
 
-              <div class="carousel-inner">
+                        <?php foreach ($slides as $i => $slide): ?>
 
-                  <?php foreach ($slides as $i => $s): ?>
+                            <button
+                                type="button"
+                                data-bs-target="#dp3aSlider"
+                                data-bs-slide-to="<?= (int) $i ?>"
+                                class="<?= $i === 0 ? 'active' : '' ?>"
+                                aria-current="<?= $i === 0 ? 'true' : 'false' ?>"
+                                aria-label="Slide <?= (int) $i + 1 ?>"
+                            ></button>
 
-                      <?php
-                      $bannerLink = resolveBannerLink($s->link);
+                        <?php endforeach; ?>
 
-                      $isExternalLink = $bannerLink !== null
-                          && preg_match(
-                              '/^https?:\/\//i',
-                              $bannerLink
-                          );
-                      ?>
+                    </div>
+                <?php endif; ?>
+                <!-- End Indicators -->
 
-                      <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
-                          <div class="slide-wrapper">
 
-                              <?php if ($bannerLink !== null): ?>
+                <!-- Slides -->
+                <div class="carousel-inner">
 
-                                  <?= Html::a(
-                                      Html::img(
-                                          $s->getImageUrl(),
-                                          [
-                                              'class' => 'd-block w-100 slider-img',
-                                              'alt' => Html::encode($s->judul),
-                                          ]
-                                      ),
-                                      $bannerLink,
-                                      [
-                                          'class' => 'slide-link',
-                                          'target' => $isExternalLink
-                                              ? '_blank'
-                                              : null,
-                                          'rel' => $isExternalLink
-                                              ? 'noopener noreferrer'
-                                              : null,
-                                      ]
-                                  ) ?>
+                    <?php foreach ($slides as $i => $slide): ?>
 
-                              <?php else: ?>
+                        <?php
+                        $bannerLink = resolveBannerLink($slide->link);
 
-                                  <?= Html::img(
-                                      $s->getImageUrl(),
-                                      [
-                                          'class' => 'd-block w-100 slider-img',
-                                          'alt' => Html::encode($s->judul),
-                                      ]
-                                  ) ?>
+                        $isExternalLink = $bannerLink !== null
+                            && preg_match(
+                                '/^https?:\/\//i',
+                                $bannerLink
+                            );
 
-                              <?php endif; ?>
+                        $bannerImageUrl = $slide->getImageUrl();
 
-                              <!-- <div class="slide-caption">
+                        $fallbackImageUrl =
+                            Yii::$app->request->baseUrl
+                            . '/web/images/no-image.png';
+                        ?>
 
-                                  <?php if (!empty($s->judul)): ?>
-                                      <h2 class="slide-title">
-                                          <?= Html::encode($s->judul) ?>
-                                      </h2>
-                                  <?php endif; ?>
+                        <div
+                            class="carousel-item <?= $i === 0 ? 'active' : '' ?>"
+                            data-slide-index="<?= (int) $i ?>"
+                        >
+                            <div class="slide-wrapper">
 
-                                  <?php if (!empty($s->deskripsi)): ?>
-                                      <p class="slide-desc">
-                                          <?= Html::encode($s->deskripsi) ?>
-                                      </p>
-                                  <?php endif; ?>
+                                <?php
+                                $bannerImage = Html::img(
+                                    $bannerImageUrl,
+                                    [
+                                        'class' => 'd-block w-100 slider-img',
+                                        'alt' => !empty($slide->judul)
+                                            ? Html::encode($slide->judul)
+                                            : 'Banner DP3AKB',
+                                        'loading' => 'eager',
+                                        'decoding' => 'async',
+                                        'fetchpriority' => $i === 0
+                                            ? 'high'
+                                            : 'auto',
+                                        'onerror' => "
+                                            console.error(
+                                                'Banner gagal dimuat:',
+                                                this.src
+                                            );
+                                            this.onerror = null;
+                                            this.src = '"
+                                                . $fallbackImageUrl
+                                                . "';
+                                        ",
+                                    ]
+                                );
+                                ?>
 
-                                  <?php if (
-                                      !empty($s->button_text)
-                                      && $bannerLink !== null
-                                  ): ?>
+                                <?php if ($bannerLink !== null): ?>
 
-                                      <?= Html::a(
-                                          Html::encode($s->button_text),
-                                          $bannerLink,
-                                          [
-                                              'class' => 'btn-slider',
-                                              'target' => $isExternalLink
-                                                  ? '_blank'
-                                                  : null,
-                                              'rel' => $isExternalLink
-                                                  ? 'noopener noreferrer'
-                                                  : null,
-                                          ]
-                                      ) ?>
+                                    <?= Html::a(
+                                        $bannerImage,
+                                        $bannerLink,
+                                        [
+                                            'class' => 'slide-link',
+                                            'target' => $isExternalLink
+                                                ? '_blank'
+                                                : null,
+                                            'rel' => $isExternalLink
+                                                ? 'noopener noreferrer'
+                                                : null,
+                                            'aria-label' => !empty($slide->judul)
+                                                ? Html::encode($slide->judul)
+                                                : 'Buka informasi banner',
+                                        ]
+                                    ) ?>
 
-                                  <?php endif; ?>
+                                <?php else: ?>
 
-                              </div>
-                          </div> -->
-                      </div>
+                                    <?= $bannerImage ?>
 
-                  <?php endforeach; ?>
+                                <?php endif; ?>
 
-              </div>
 
-              <?php if (count($slides) > 1): ?>
+                                <?php if (
+                                    !empty($slide->judul)
+                                    || !empty($slide->deskripsi)
+                                    || (
+                                        !empty($slide->button_text)
+                                        && $bannerLink !== null
+                                    )
+                                ): ?>
 
-                  <button
-                      class="carousel-control-prev"
-                      type="button"
-                      data-bs-target="#dp3aSlider"
-                      data-bs-slide="prev"
-                  >
-                      <span
-                          class="carousel-control-prev-icon"
-                          aria-hidden="true"
-                      ></span>
+                                    <div class="slide-caption">
 
-                      <span class="visually-hidden">
-                          Previous
-                      </span>
-                  </button>
+                                        <?php if (!empty($slide->judul)): ?>
+                                            <h2 class="slide-title">
+                                                <?= Html::encode($slide->judul) ?>
+                                            </h2>
+                                        <?php endif; ?>
 
-                  <button
-                      class="carousel-control-next"
-                      type="button"
-                      data-bs-target="#dp3aSlider"
-                      data-bs-slide="next"
-                  >
-                      <span
-                          class="carousel-control-next-icon"
-                          aria-hidden="true"
-                      ></span>
+                                        <?php if (!empty($slide->deskripsi)): ?>
+                                            <p class="slide-desc">
+                                                <?= Html::encode($slide->deskripsi) ?>
+                                            </p>
+                                        <?php endif; ?>
 
-                      <span class="visually-hidden">
-                          Next
-                      </span>
-                  </button>
+                                        <?php if (
+                                            !empty($slide->button_text)
+                                            && $bannerLink !== null
+                                        ): ?>
 
-              <?php endif; ?>
+                                            <?= Html::a(
+                                                Html::encode(
+                                                    $slide->button_text
+                                                ),
+                                                $bannerLink,
+                                                [
+                                                    'class' => 'btn-slider',
+                                                    'target' => $isExternalLink
+                                                        ? '_blank'
+                                                        : null,
+                                                    'rel' => $isExternalLink
+                                                        ? 'noopener noreferrer'
+                                                        : null,
+                                                ]
+                                            ) ?>
 
-          <?php else: ?>
+                                        <?php endif; ?>
 
-              <div class="carousel-inner">
-                  <div class="carousel-item active">
-                      <div class="slide-wrapper">
+                                    </div>
 
-                          <?= Html::img(
-                              Yii::$app->request->baseUrl
-                              . '/web/images/no-image.png',
-                              [
-                                  'class' => 'd-block w-100 slider-img',
-                                  'alt' => 'Banner belum tersedia',
-                              ]
-                          ) ?>
+                                <?php endif; ?>
 
-                          <div class="slide-caption">
-                              <h2 class="slide-title">
-                                  Banner Belum Tersedia
-                              </h2>
+                            </div>
+                        </div>
 
-                              <p class="slide-desc">
-                                  Silakan tambahkan banner melalui halaman administrator.
-                              </p>
-                          </div>
+                    <?php endforeach; ?>
 
-                      </div>
-                  </div>
-              </div>
+                </div>
+                <!-- End Slides -->
 
-          <?php endif; ?>
 
-             </div>
+                <!-- Controls -->
+                <?php if (count($slides) > 1): ?>
+
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#dp3aSlider"
+                        data-bs-slide="prev"
+                        aria-label="Banner sebelumnya"
+                    >
+                        <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span class="visually-hidden">
+                            Sebelumnya
+                        </span>
+                    </button>
+
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#dp3aSlider"
+                        data-bs-slide="next"
+                        aria-label="Banner berikutnya"
+                    >
+                        <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span class="visually-hidden">
+                            Berikutnya
+                        </span>
+                    </button>
+
+                <?php endif; ?>
+                <!-- End Controls -->
+
+
+            <?php else: ?>
+
+                <!-- Banner Kosong -->
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+
+                        <div class="slide-wrapper">
+
+                            <?= Html::img(
+                                Yii::$app->request->baseUrl
+                                . '/web/images/no-image.png',
+                                [
+                                    'class' => 'd-block w-100 slider-img',
+                                    'alt' => 'Banner belum tersedia',
+                                    'loading' => 'eager',
+                                ]
+                            ) ?>
+
+                            <div class="slide-caption">
+
+                                <h2 class="slide-title">
+                                    Banner Belum Tersedia
+                                </h2>
+
+                                <p class="slide-desc">
+                                    Silakan tambahkan banner melalui halaman administrator.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- End Banner Kosong -->
+
+            <?php endif; ?>
+
+        </div>
         <!-- End Carousel -->
 
     </div>
     <!-- End Container Fluid -->
 
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const sliderElement = document.getElementById('dp3aSlider');
+
+    if (!sliderElement || typeof bootstrap === 'undefined') {
+        return;
+    }
+
+    const images = Array.from(
+        sliderElement.querySelectorAll('.slider-img')
+    );
+
+    const waitImages = images.map(function (image) {
+        return new Promise(function (resolve) {
+            if (image.complete) {
+                resolve();
+                return;
+            }
+
+            image.addEventListener('load', resolve, {
+                once: true
+            });
+
+            image.addEventListener('error', resolve, {
+                once: true
+            });
+        });
+    });
+
+    Promise.all(waitImages).then(function () {
+        const carousel = bootstrap.Carousel.getOrCreateInstance(
+            sliderElement,
+            {
+                interval: 5000,
+                pause: 'hover',
+                ride: false,
+                touch: true,
+                wrap: true
+            }
+        );
+
+        carousel.cycle();
+    });
+});
+</script>
 
   <!-- 🚨 Emergency Hotline Ticker -->
   <div class="emergency-ticker" role="alert" aria-live="polite">
