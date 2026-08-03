@@ -111,45 +111,21 @@ use yii\helpers\Url;
             <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-delay="200">
               <div class="showcase-content">
                 <div class="icon-box">
-                  <i class="bi bi-telephone"></i>
-                </div>
-                <h3>Telepon & WhatsApp</h3>
-                <p>Hubungi kami langsung untuk konsultasi cepat, pengaduan darurat, atau informasi layanan.</p>
-                <ul class="feature-list">
-                  <li><i class="bi bi-arrow-right-circle-fill"></i> <a href="tel:082162836668" class="text-decoration-none">0821-6283-6668</a> (WhatsApp)</li>
-                  <li><i class="bi bi-arrow-right-circle-fill"></i> Senin - Jumat, 08.00 - 16.00 WIB</li>
-                  <li><i class="bi bi-arrow-right-circle-fill"></i> Layanan pengaduan darurat 24 jam</li>
-                  <li><i class="bi bi-arrow-right-circle-fill"></i> Respon cepat maksimal 1x24 jam</li>
-                </ul>
-                <a href="https://wa.me/6282162836668" target="_blank" class="discover-link">Chat via WhatsApp <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Phone Row -->
-
-          <!-- Email Resmi -->
-          <div class="row align-items-center gy-5" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-              <div class="showcase-image">
-                <img src="<?= Yii::$app->request->baseUrl ?>/web/img/file.jpeg" alt="Layanan Email" class="img-fluid">
-              </div>
-            </div>
-            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-              <div class="showcase-content">
-                <div class="icon-box">
                   <i class="bi bi-envelope"></i>
                 </div>
                 <h3>Email Resmi</h3>
                 <p>Kirimkan permohonan informasi, surat resmi, atau dokumen pendukung melalui email.</p>
                 <ul class="feature-list">
-                  <li><i class="bi bi-arrow-right-circle-fill"></i> <a href="mailto:dp3a@sumutprov.go.id" class="text-decoration-none">dp3a@sumutprov.go.id</a></li>
+                  <li><i class="bi bi-arrow-right-circle-fill"></i> <a href="mailto:dp3akb.provsu@gmail.com" class="text-decoration-none">dp3akb.provsu@gmail.com</a></li>
                   <li><i class="bi bi-arrow-right-circle-fill"></i> Format: Subjek jelas + lampiran PDF</li>
                   <li><i class="bi bi-arrow-right-circle-fill"></i> Respon maksimal 2x24 jam kerja</li>
                   <li><i class="bi bi-arrow-right-circle-fill"></i> Konfirmasi penerimaan otomatis</li>
                 </ul>
-                <a href="mailto:dp3a@sumutprov.go.id" class="discover-link">Kirim Email <i class="bi bi-arrow-right"></i></a>
-              </div>
+                <a href="mailto:dp3akb.provsu@gmail.com" class="discover-link">Kirim Email <i class="bi bi-arrow-right"></i></a>  </div>
             </div>
-          </div><!-- End Email Row -->
+          </div><!-- End Phone Row -->
+
+          
 
         </div>
 
