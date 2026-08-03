@@ -848,7 +848,7 @@
           <p>Petisah Tengah, Kec. Medan Petisah,</p>
           <p>Medan, Sumatera Utara 20112</p>
           <!-- <p class="mt-4"><strong>Telepon:</strong> <span>(061) 4566-328</span></p> -->
-          <p><strong>Email:</strong> <span>dp3akb.provsu@gmail.com</span></p>
+          <p class="mt-4"><strong>Email:</strong> <span>dp3akb.provsu@gmail.com</span></p>
           <!-- <p><strong>Hotline:</strong> <span>129 / 0811-633-129</span></p> -->
         </div>
 
