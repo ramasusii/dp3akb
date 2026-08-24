@@ -106,26 +106,42 @@ $emailShareUrl =
 /**
  * Isi berita yang telah dibersihkan.
  */
-$isiBerita = HtmlPurifier::process(
-    (string) $berita->isi,
-    [
-        'HTML.Allowed' => '
-            p,br,strong,b,em,i,u,
-            h1,h2,h3,h4,h5,h6,
-            ul,ol,li,
-            blockquote,
-            a[href|target|rel],
-            img[src|alt|title|width|height|class],
-            table[class],
-            thead,tbody,tr,th,td,
-            div[class],
-            span[class]
-        ',
-        'Attr.AllowedFrameTargets' => [
-            '_blank',
-        ],
-    ]
-);
+$isiMentah = trim((string) $berita->isi);
+
+/*
+ * Jika isi berita berasal dari editor HTML/rich text,
+ * pertahankan struktur HTML yang sudah dibuat admin.
+ *
+ * Jika isi berita berupa teks biasa dari textarea,
+ * Enter akan diubah menjadi <br> agar terbaca di website.
+ */
+if ($isiMentah !== strip_tags($isiMentah)) {
+    $isiBerita = HtmlPurifier::process(
+        $isiMentah,
+        [
+            'HTML.Allowed' => '
+                p,br,strong,b,em,i,u,
+                h1,h2,h3,h4,h5,h6,
+                ul,ol,li,
+                blockquote,
+                a[href|target|rel],
+                img[src|alt|title|width|height|class],
+                table[class],
+                thead,tbody,tr,th,td,
+                div[class],
+                span[class]
+            ',
+            'Attr.AllowedFrameTargets' => [
+                '_blank',
+            ],
+        ]
+    );
+} else {
+    $isiBerita = nl2br(
+        Html::encode($isiMentah),
+        false
+    );
+}
 ?>
 
 <main class="main">
@@ -1232,7 +1248,18 @@ $isiBerita = HtmlPurifier::process(
     font-size: 17px !important;
     font-weight: 400 !important;
     line-height: 1.95 !important;
-    text-align: left !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+}
+
+/* Teks biasa dari textarea yang memakai Enter */
+#blog-details.blog-details
+.premium-article-content {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    overflow-wrap: break-word !important;
 }
 
 #blog-details.blog-details
