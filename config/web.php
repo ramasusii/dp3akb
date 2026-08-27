@@ -96,6 +96,10 @@ $config = [
                                 'route'   => '/site/visi-misi',
                             ],
                             [
+                                'pattern' => 'maklumat',
+                                'route'   => '/site/maklumat',
+                            ],
+                            [
                                 'pattern' => 'foto',
                                 'route'   => '/site/foto',
                             ],
