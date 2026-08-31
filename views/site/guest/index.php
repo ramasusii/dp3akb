@@ -2557,10 +2557,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <!-- Inner Slides -->
                 <div class="carousel-inner rounded">
                    <div class="carousel-item active">
-                    <img src="<?= Yii::$app->request->baseUrl ?>/web/uploads/infografis/april.jpeg" class="d-block w-100" alt="Infografis DP3AKB 1">
+                    <img src="<?= Yii::$app->request->baseUrl ?>/web/img/infografis/april.jpeg" class="d-block w-100" alt="Infografis DP3AKB 1">
                   </div>
                   <div class="carousel-item">
-                    <img src="<?= Yii::$app->request->baseUrl ?>/web/uploads/infografis/feb.jpeg" class="d-block w-100" alt="Infografis DP3AKB 1">
+                    <img src="<?= Yii::$app->request->baseUrl ?>/web/img/infografis/feb.jpeg" class="d-block w-100" alt="Infografis DP3AKB 1">
                   </div>
                   
                 </div>
