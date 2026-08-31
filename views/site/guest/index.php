@@ -1297,27 +1297,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
               <div class="panel-services">
 
-                <div class="panel-service-item">
-                  <span class="service-dot"></span>
-                  <span>Permintaan Narasumber</span>
-                </div>
+                <a
+                  href="<?= Yii::$app->request->baseUrl ?>/web/uploads/sk-pelayanan/standar-pelayanan-permintaan-narasumber.pdf"
+                  class="panel-service-item panel-service-download"
+                  download
+                  aria-label="Download Standar Pelayanan Permintaan Narasumber"
+                >
+                  <span class="service-download-icon">
+                    <i class="bi bi-mic-fill"></i>
+                  </span>
 
-                <div class="panel-service-item">
-                  <span class="service-dot"></span>
-                  <span>Permintaan Sosialisasi</span>
-                </div>
+                  <span class="service-download-copy">
+                    <small>Layanan 01</small>
+                    <strong>Permintaan Narasumber</strong>
+                  </span>
 
-                <div class="panel-service-item">
-                  <span class="service-dot"></span>
-                  <span>Permintaan Data</span>
-                </div>
+                  <span class="service-download-action">
+                    <i class="bi bi-file-earmark-arrow-down"></i>
+                  </span>
+                </a>
+
+                <a
+                  href="<?= Yii::$app->request->baseUrl ?>/web/uploads/sk-pelayanan/standar-pelayanan-permintaan-sosialisasi.pdf"
+                  class="panel-service-item panel-service-download"
+                  download
+                  aria-label="Download Standar Pelayanan Permintaan Sosialisasi"
+                >
+                  <span class="service-download-icon">
+                    <i class="bi bi-megaphone-fill"></i>
+                  </span>
+
+                  <span class="service-download-copy">
+                    <small>Layanan 02</small>
+                    <strong>Permintaan Sosialisasi</strong>
+                  </span>
+
+                  <span class="service-download-action">
+                    <i class="bi bi-file-earmark-arrow-down"></i>
+                  </span>
+                </a>
+
+                <a
+                  href="<?= Yii::$app->request->baseUrl ?>/web/uploads/sk-pelayanan/standar-pelayanan-permintaan-data.pdf"
+                  class="panel-service-item panel-service-download"
+                  download
+                  aria-label="Download Standar Pelayanan Permintaan Data"
+                >
+                  <span class="service-download-icon">
+                    <i class="bi bi-database-fill"></i>
+                  </span>
+
+                  <span class="service-download-copy">
+                    <small>Layanan 03</small>
+                    <strong>Permintaan Data</strong>
+                  </span>
+
+                  <span class="service-download-action">
+                    <i class="bi bi-file-earmark-arrow-down"></i>
+                  </span>
+                </a>
 
               </div>
 
               <div class="panel-footnote">
-                <i class="bi bi-arrow-down"></i>
+                <i class="bi bi-file-earmark-pdf"></i>
                 <span>
-                  Tonton informasi pelayanan selengkapnya di bawah
+                  Pilih layanan untuk mengunduh dokumen standarnya,
+                  atau tonton rangkumannya pada video di bawah.
                 </span>
               </div>
 
@@ -1370,14 +1416,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
               </div>
 
-              <div class="video-official-mark">
-                <i class="bi bi-shield-fill-check"></i>
-                <span>DP3AKB Provsu</span>
+              <div class="layanan-video-actions">
+                <a
+                  href="<?= Yii::$app->request->baseUrl ?>/web/uploads/sk-pelayanan/standar-pelayanan-dinas-p3akb-provsu.pdf"
+                  class="layanan-pdf-download"
+                  download
+                  aria-label="Download PDF Standar Pelayanan Dinas DP3AKB 2026"
+                >
+                  <span class="pdf-download-icon">
+                    <i class="bi bi-file-earmark-pdf-fill"></i>
+                  </span>
+
+                  <span class="pdf-download-copy">
+                    <small>Dokumen Lengkap</small>
+                    <strong>Download Semua</strong>
+                  </span>
+
+                  <i class="bi bi-arrow-down-circle pdf-download-arrow"></i>
+                </a>
+
+                <div class="video-official-mark">
+                  <i class="bi bi-shield-fill-check"></i>
+                  <span>DP3AKB Provsu</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="layanan-page-heading" data-aos="fade-up" data-aos-delay="180">
+          <!-- <div class="layanan-page-heading" data-aos="fade-up" data-aos-delay="180">
             <span>Informasi Selengkapnya</span>
             <h3>Akses Halaman Standar Pelayanan</h3>
             <p>
@@ -1438,7 +1504,7 @@ document.addEventListener('DOMContentLoaded', function () {
               </div>
             </a>
 
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -1641,20 +1707,158 @@ document.addEventListener('DOMContentLoaded', function () {
         line-height: 1.4;
       }
 
-      .service-dot {
-        display: block;
-        width: 8px;
-        height: 8px;
-        flex: 0 0 8px;
+      .panel-service-download {
+        position: relative;
+        min-height: 58px;
+        padding: 8px 9px 8px 8px;
+        gap: 10px;
+        overflow: hidden;
+
+        color: #263147 !important;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255,255,255,.95),
+            rgba(246,249,255,.92)
+          );
+
+        border: 1px solid rgba(7,37,133,.10);
+        border-radius: 14px;
+
+        box-shadow:
+          0 7px 18px rgba(20,35,75,.045);
+
+        text-decoration: none !important;
+
+        transition:
+          transform .25s ease,
+          border-color .25s ease,
+          box-shadow .25s ease,
+          background .25s ease;
+      }
+
+      .panel-service-download::before {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 52%;
+        height: 100%;
+        pointer-events: none;
+
+        background:
+          linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+          );
+
+        transform: skewX(-20deg);
+        transition: left .55s ease;
+        content: "";
+      }
+
+      .panel-service-download:hover {
+        color: #263147 !important;
+        background:
+          linear-gradient(
+            135deg,
+            #ffffff,
+            #f2f6ff
+          );
+
+        border-color: rgba(7,37,133,.20);
+
+        box-shadow:
+          0 12px 26px rgba(7,37,133,.10);
+
+        transform: translateY(-2px);
+      }
+
+      .panel-service-download:hover::before {
+        left: 135%;
+      }
+
+      .service-download-icon {
+        position: relative;
+        z-index: 2;
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        align-items: center;
+        justify-content: center;
+
+        color: #ffffff;
         background:
           linear-gradient(
             135deg,
             #072585,
             #174bc8
           );
-        border-radius: 50%;
+
+        border-radius: 11px;
+
         box-shadow:
-          0 0 0 4px rgba(7,37,133,.07);
+          0 7px 16px rgba(7,37,133,.17);
+
+        font-size: 15px;
+      }
+
+      .service-download-copy {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        min-width: 0;
+        flex: 1;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .service-download-copy small {
+        color: #8993a4;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: .8px;
+        text-transform: uppercase;
+      }
+
+      .service-download-copy strong {
+        overflow: hidden;
+        color: #263147;
+        font-size: 11.5px;
+        font-weight: 780;
+        line-height: 1.3;
+        text-overflow: ellipsis;
+      }
+
+      .service-download-action {
+        position: relative;
+        z-index: 2;
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        align-items: center;
+        justify-content: center;
+
+        color: #072585;
+        background: #edf2ff;
+        border: 1px solid #dbe5fb;
+        border-radius: 10px;
+
+        font-size: 14px;
+
+        transition:
+          color .25s ease,
+          background .25s ease,
+          transform .25s ease;
+      }
+
+      .panel-service-download:hover .service-download-action {
+        color: #ffffff;
+        background: #072585;
+        transform: translateY(2px);
       }
 
       .panel-footnote {
@@ -1854,6 +2058,123 @@ document.addEventListener('DOMContentLoaded', function () {
         color: #7a8496;
         font-size: 11.5px;
         line-height: 1.55;
+      }
+
+      .layanan-video-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .layanan-pdf-download {
+        position: relative;
+        display: inline-flex;
+        min-height: 46px;
+        padding: 7px 11px 7px 8px;
+        align-items: center;
+        gap: 10px;
+        overflow: hidden;
+
+        color: #ffffff !important;
+        background:
+          linear-gradient(
+            135deg,
+            #071f70 0%,
+            #0b3ca7 100%
+          );
+
+        border: 1px solid rgba(255,255,255,.16);
+        border-radius: 14px;
+
+        box-shadow:
+          0 10px 24px rgba(7,37,133,.18),
+          inset 0 1px 0 rgba(255,255,255,.15);
+
+        text-decoration: none !important;
+
+        transition:
+          transform .25s ease,
+          box-shadow .25s ease;
+      }
+
+      .layanan-pdf-download::before {
+        position: absolute;
+        top: 0;
+        left: -90%;
+        width: 60%;
+        height: 100%;
+        background:
+          linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            transparent
+          );
+        transform: skewX(-18deg);
+        transition: left .55s ease;
+        content: "";
+      }
+
+      .layanan-pdf-download:hover {
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow:
+          0 14px 30px rgba(7,37,133,.24),
+          inset 0 1px 0 rgba(255,255,255,.18);
+      }
+
+      .layanan-pdf-download:hover::before {
+        left: 130%;
+      }
+
+      .pdf-download-icon {
+        position: relative;
+        z-index: 2;
+        display: inline-flex;
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        align-items: center;
+        justify-content: center;
+
+        color: #b4232f;
+        background: #ffffff;
+        border-radius: 10px;
+
+        font-size: 17px;
+        box-shadow: 0 5px 12px rgba(0,0,0,.12);
+      }
+
+      .pdf-download-copy {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        min-width: 92px;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+
+      .pdf-download-copy small {
+        margin-bottom: 2px;
+        color: rgba(255,255,255,.66);
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: .8px;
+        text-transform: uppercase;
+      }
+
+      .pdf-download-copy strong {
+        color: #ffffff;
+        font-size: 11.5px;
+        font-weight: 800;
+      }
+
+      .pdf-download-arrow {
+        position: relative;
+        z-index: 2;
+        color: rgba(255,255,255,.82);
+        font-size: 16px;
       }
 
       .video-official-mark {
@@ -2128,6 +2449,17 @@ document.addEventListener('DOMContentLoaded', function () {
           padding: 15px;
           align-items: flex-start;
           flex-direction: column;
+        }
+
+        .layanan-video-actions {
+          width: 100%;
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .layanan-pdf-download {
+          width: 100%;
+          justify-content: flex-start;
         }
 
         .video-official-mark {
