@@ -1812,4 +1812,18 @@ class SiteController extends Controller
         );
     }
 
+    public function actionSkPelayananDinas()
+    {
+        $this->layout = 'guest';
+
+        return $this->render('guest/sk-pelayanan-dinas');
+    }
+
+    public function actionSkPelayananUpt()
+    {
+        $this->layout = 'guest';
+
+        return $this->render('guest/sk-pelayanan-upt');
+    }
+
 }

@@ -418,11 +418,6 @@ if ($isiMentah !== strip_tags($isiMentah)) {
                                             class="premium-summary-content"
                                         >
 
-                                            <span
-                                                class="premium-summary-label"
-                                            >
-                                                Ringkasan Berita
-                                            </span>
 
                                             <p>
 

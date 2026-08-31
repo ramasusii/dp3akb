@@ -484,7 +484,12 @@
                                     Profil Dinas
                                 </a>
                             </li>
+
+                            <!-- <li><a href="<?= Url::to(['site/sk-pelayanan-dinas']) ?>">SK Pelayanan Dinas</a></li>
+                            <li><a href="<?= Url::to(['site/sk-pelayanan-upt']) ?>">SK Pelayanan UPT</a></li> -->
                         </ul>
+
+                        
 
                     </li>
 

@@ -100,6 +100,19 @@ $config = [
                                 'route'   => '/site/maklumat',
                             ],
                             [
+                                'pattern' => 'sk-pelayanan-dinas',
+                                'route'   => '/site/sk-pelayanan-dinas',
+                            ],
+                            [
+                                'pattern' => 'sk-pelayanan-upt',
+                                'route'   => '/site/sk-pelayanan-upt',
+                            ],
+
+                            [
+                                'pattern' => 'kontak',
+                                'route'   => '/site/kontak',
+                            ],
+                            [
                                 'pattern' => 'foto',
                                 'route'   => '/site/foto',
                             ],

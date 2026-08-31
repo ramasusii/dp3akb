@@ -80,7 +80,7 @@ use yii\helpers\Url;
                                     <span>Ditetapkan oleh</span>
                                     <strong>
                                         Kepala Dinas Pemberdayaan Perempuan,
-                                        Perlindungan Anak dan Keluarga
+                                        Perlindungan Anak dan Keluarga Berencana Provinsi Sumatera Utara
                                     </strong>
                                 </div>
                             </div>

@@ -1251,6 +1251,914 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
       </section>
 
+
+      <!-- STANDAR PELAYANAN DP3AKB -->
+      <section id="standar-pelayanan-home" class="standar-pelayanan-home section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="layanan-editorial-intro" data-aos="fade-up">
+
+            <div class="layanan-editorial-accent" aria-hidden="true">
+              <span>03</span>
+              <small>Layanan Dinas</small>
+            </div>
+
+            <div class="layanan-editorial-main">
+
+              <div class="layanan-editorial-kicker">
+                <span class="kicker-line"></span>
+
+                <span class="kicker-text">
+                  Pelayanan Publik · Informasi Resmi
+                </span>
+              </div>
+
+              <h2>
+                Tiga Layanan Dinas,
+                <span>
+                  satu informasi yang lebih mudah dipahami.
+                </span>
+              </h2>
+
+              <p class="layanan-editorial-lead">
+                Sebelum mengajukan layanan, kenali terlebih dahulu
+                ketentuan dan alur pelayanan DP3AKB Provinsi Sumatera Utara.
+                Video ini merangkum informasi penting secara ringkas dan
+                mudah diikuti oleh masyarakat.
+              </p>
+
+            </div>
+
+            <div class="layanan-editorial-panel">
+
+              <span class="panel-label">
+                Tercakup dalam video
+              </span>
+
+              <div class="panel-services">
+
+                <div class="panel-service-item">
+                  <span class="service-dot"></span>
+                  <span>Permintaan Narasumber</span>
+                </div>
+
+                <div class="panel-service-item">
+                  <span class="service-dot"></span>
+                  <span>Permintaan Sosialisasi</span>
+                </div>
+
+                <div class="panel-service-item">
+                  <span class="service-dot"></span>
+                  <span>Permintaan Data</span>
+                </div>
+
+              </div>
+
+              <div class="panel-footnote">
+                <i class="bi bi-arrow-down"></i>
+                <span>
+                  Tonton informasi pelayanan selengkapnya di bawah
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="layanan-video-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="layanan-video-top">
+              <div class="layanan-video-title">
+                <div class="layanan-video-icon">
+                  <i class="bi bi-play-btn-fill"></i>
+                </div>
+
+                <div>
+                  <span>Video Standar Pelayanan Dinas</span>
+                  <h3>Standar Pelayanan Dinas DP3AKB Provinsi Sumatera Utara</h3>
+                </div>
+              </div>
+
+              <div class="layanan-video-badge">
+                <i class="bi bi-patch-check-fill"></i>
+                Informasi Resmi
+              </div>
+            </div>
+
+            <div class="layanan-video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/iZ_Zm4wkETo?rel=0"
+                title="Standar Pelayanan DP3AKB Provinsi Sumatera Utara"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="layanan-video-footer">
+              <div class="video-footer-note">
+                <span class="video-note-icon">
+                  <i class="bi bi-info-lg"></i>
+                </span>
+
+                <div>
+                  <strong>Informasi Pelayanan Dinas</strong>
+                  <span>
+                    Video ini membahas Permintaan Narasumber,
+                    Permintaan Sosialisasi, dan Permintaan Data.
+                  </span>
+                </div>
+              </div>
+
+              <div class="video-official-mark">
+                <i class="bi bi-shield-fill-check"></i>
+                <span>DP3AKB Provsu</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="layanan-page-heading" data-aos="fade-up" data-aos-delay="180">
+            <span>Informasi Selengkapnya</span>
+            <h3>Akses Halaman Standar Pelayanan</h3>
+            <p>
+              Video di atas khusus untuk Pelayanan Dinas. Informasi Pelayanan Dinas
+              dan Pelayanan UPT tetap tersedia pada halaman terpisah berikut.
+            </p>
+          </div>
+
+          <div class="layanan-home-grid" data-aos="fade-up" data-aos-delay="200">
+
+            <a
+              href="<?= Url::to(['site/sk-pelayanan-dinas']) ?>"
+              class="layanan-home-card"
+            >
+              <div class="layanan-card-number">01</div>
+
+              <div class="layanan-card-icon">
+                <i class="bi bi-building"></i>
+              </div>
+
+              <div class="layanan-card-content">
+                <span class="layanan-card-label">Pelayanan Dinas</span>
+                <h3>Standar Pelayanan Dinas</h3>
+                <p>
+                  Permintaan Narasumber, Permintaan Sosialisasi,
+                  dan Permintaan Data.
+                </p>
+
+                <div class="layanan-card-link">
+                  Lihat informasi
+                  <i class="bi bi-arrow-right"></i>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="<?= Url::to(['site/sk-pelayanan-upt']) ?>"
+              class="layanan-home-card layanan-home-card-alt"
+            >
+              <div class="layanan-card-number">02</div>
+
+              <div class="layanan-card-icon">
+                <i class="bi bi-people"></i>
+              </div>
+
+              <div class="layanan-card-content">
+                <span class="layanan-card-label">Pelayanan UPT</span>
+                <h3>Standar Pelayanan UPT</h3>
+                <p>
+                  Informasi layanan UPT terkait perlindungan
+                  perempuan dan anak.
+                </p>
+
+                <div class="layanan-card-link">
+                  Lihat informasi
+                  <i class="bi bi-arrow-right"></i>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <style>
+      #standar-pelayanan-home {
+        position: relative;
+        margin: 12px 0 8px !important;
+        padding: 64px 0 !important;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 92% 8%, rgba(7,37,133,.08), transparent 28%),
+          radial-gradient(circle at 8% 92%, rgba(248,171,60,.09), transparent 24%),
+          linear-gradient(180deg,#f8faff 0%,#fff 48%,#f7f9fe 100%) !important;
+        border-top: 1px solid #edf1f7;
+        border-bottom: 1px solid #edf1f7;
+      }
+
+      /* Editorial intro */
+      .layanan-editorial-intro {
+        position: relative;
+        display: grid;
+        max-width: 980px;
+        margin: 0 auto 38px;
+        padding: 34px 34px 32px;
+        grid-template-columns: 78px minmax(0, 1.35fr) minmax(260px, .8fr);
+        gap: 28px;
+        align-items: stretch;
+
+        overflow: hidden;
+
+        background:
+          radial-gradient(
+            circle at 92% 2%,
+            rgba(248,171,60,.11),
+            transparent 24%
+          ),
+          linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(246,249,255,.98)
+          );
+
+        border: 1px solid #dce5f3;
+        border-radius: 28px;
+
+        box-shadow:
+          0 24px 65px rgba(13,31,76,.09),
+          inset 0 1px 0 rgba(255,255,255,.95);
+      }
+
+      .layanan-editorial-intro::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background:
+          linear-gradient(
+            90deg,
+            #072585 0%,
+            #174bc8 72%,
+            #f8ab3c 100%
+          );
+        content: "";
+      }
+
+      .layanan-editorial-accent {
+        display: flex;
+        min-height: 185px;
+        padding: 15px 8px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        color: #ffffff;
+
+        background:
+          linear-gradient(
+            160deg,
+            #061c68,
+            #0b3ca7
+          );
+
+        border-radius: 20px;
+
+        box-shadow:
+          0 15px 30px rgba(7,37,133,.18);
+      }
+
+      .layanan-editorial-accent span {
+        display: block;
+        font-size: 32px;
+        font-weight: 850;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+
+      .layanan-editorial-accent small {
+        display: block;
+        margin-top: 12px;
+        color: rgba(255,255,255,.72);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1.15px;
+        text-align: center;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+
+      .layanan-editorial-main {
+        align-self: center;
+      }
+
+      .layanan-editorial-kicker {
+        display: flex;
+        margin-bottom: 13px;
+        align-items: center;
+        gap: 11px;
+      }
+
+      .kicker-line {
+        display: block;
+        width: 34px;
+        height: 2px;
+        flex: 0 0 34px;
+        background: #f8ab3c;
+        border-radius: 99px;
+      }
+
+      .kicker-text {
+        color: #072585;
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+      }
+
+      .layanan-editorial-main h2 {
+        margin: 0 0 17px;
+        color: #1d293e;
+        font-size: clamp(31px,3.4vw,45px);
+        font-weight: 820;
+        line-height: 1.12;
+        letter-spacing: -1px;
+      }
+
+      .layanan-editorial-main h2 span {
+        display: block;
+        color: #072585;
+      }
+
+      .layanan-editorial-lead {
+        max-width: 610px;
+        margin: 0;
+        color: #6d788b;
+        font-size: 14.5px;
+        line-height: 1.85;
+      }
+
+      .layanan-editorial-panel {
+        position: relative;
+        align-self: center;
+        padding: 22px 20px;
+
+        background:
+          linear-gradient(
+            145deg,
+            rgba(7,37,133,.045),
+            rgba(255,255,255,.72)
+          );
+
+        border: 1px solid rgba(7,37,133,.09);
+        border-radius: 19px;
+      }
+
+      .panel-label {
+        display: block;
+        margin-bottom: 13px;
+        color: #7a8496;
+        font-size: 9px;
+        font-weight: 850;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+      }
+
+      .panel-services {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+
+      .panel-service-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #263147;
+        font-size: 12px;
+        font-weight: 720;
+        line-height: 1.4;
+      }
+
+      .service-dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        flex: 0 0 8px;
+        background:
+          linear-gradient(
+            135deg,
+            #072585,
+            #174bc8
+          );
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 4px rgba(7,37,133,.07);
+      }
+
+      .panel-footnote {
+        display: flex;
+        margin-top: 18px;
+        padding-top: 14px;
+        align-items: center;
+        gap: 8px;
+
+        color: #8a94a5;
+        border-top: 1px solid rgba(7,37,133,.09);
+
+        font-size: 10.5px;
+        line-height: 1.5;
+      }
+
+      .panel-footnote i {
+        color: #f8ab3c;
+        font-size: 14px;
+      }
+
+      .layanan-video-card {
+        position: relative;
+        max-width: 980px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: rgba(255,255,255,.96);
+        border: 1px solid rgba(213,223,241,.9);
+        border-radius: 28px;
+        box-shadow:
+          0 34px 90px rgba(9,28,76,.14),
+          0 8px 26px rgba(9,28,76,.05),
+          inset 0 1px 0 rgba(255,255,255,.95);
+      }
+
+      .layanan-video-card::before {
+        position: absolute;
+        top: -90px;
+        right: -70px;
+        z-index: 0;
+        width: 220px;
+        height: 220px;
+        pointer-events: none;
+        background: radial-gradient(
+          circle,
+          rgba(248,171,60,.16),
+          rgba(248,171,60,0) 68%
+        );
+        border-radius: 50%;
+        content: "";
+      }
+
+      .layanan-video-top {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        padding: 23px 24px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255,255,255,.98),
+            rgba(244,248,255,.96)
+          );
+        border-bottom: 1px solid #e3e9f3;
+      }
+
+      .layanan-video-title {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+
+      .layanan-video-icon {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: linear-gradient(135deg,#072585,#174bc8);
+        border-radius: 14px;
+        box-shadow: 0 9px 20px rgba(7,37,133,.2);
+        font-size: 21px;
+      }
+
+      .layanan-video-title span {
+        display: block;
+        margin-bottom: 3px;
+        color: #7c8799;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+      }
+
+      .layanan-video-title h3 {
+        margin: 0;
+        color: #212c41;
+        font-size: 18px;
+        font-weight: 760;
+        line-height: 1.35;
+      }
+
+      .layanan-video-badge {
+        display: inline-flex;
+        padding: 8px 12px;
+        align-items: center;
+        gap: 7px;
+        color: #0b7149;
+        background: #ebf8f1;
+        border: 1px solid #ccecdc;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 750;
+        white-space: nowrap;
+      }
+
+      .layanan-video-frame {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background:
+          linear-gradient(
+            135deg,
+            #071f70,
+            #0b3598
+          );
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,.04),
+          inset 0 -1px 0 rgba(255,255,255,.04);
+      }
+
+      .layanan-video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .layanan-video-footer {
+        display: flex;
+        padding: 18px 22px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(247,250,255,.98),
+            rgba(255,255,255,.98)
+          );
+        border-top: 1px solid #e7ebf2;
+      }
+
+      .video-footer-note {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #6f7a8d;
+      }
+
+      .video-note-icon {
+        display: inline-flex;
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+        align-items: center;
+        justify-content: center;
+        color: #072585;
+        background: #edf2ff;
+        border: 1px solid #dae4fa;
+        border-radius: 12px;
+        font-size: 15px;
+      }
+
+      .video-footer-note > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .video-footer-note strong {
+        color: #263147;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .15px;
+      }
+
+      .video-footer-note > div > span {
+        color: #7a8496;
+        font-size: 11.5px;
+        line-height: 1.55;
+      }
+
+      .video-official-mark {
+        display: inline-flex;
+        padding: 8px 11px;
+        align-items: center;
+        gap: 7px;
+        color: #072585;
+        background: rgba(7,37,133,.055);
+        border: 1px solid rgba(7,37,133,.12);
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .25px;
+        white-space: nowrap;
+      }
+
+      .layanan-page-heading {
+        max-width: 760px;
+        margin: 34px auto 18px;
+        text-align: center;
+      }
+
+      .layanan-page-heading span {
+        display: block;
+        margin-bottom: 5px;
+        color: #072585;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+      }
+
+      .layanan-page-heading h3 {
+        margin: 0 0 8px;
+        color: #202b40;
+        font-size: 22px;
+        font-weight: 780;
+      }
+
+      .layanan-page-heading p {
+        margin: 0 auto;
+        color: #747f91;
+        font-size: 13px;
+        line-height: 1.75;
+      }
+
+      .layanan-home-grid {
+        display: grid;
+        max-width: 980px;
+        margin: 28px auto 0;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 18px;
+      }
+
+      .layanan-home-card {
+        position: relative;
+        display: flex;
+        min-height: 175px;
+        padding: 26px;
+        align-items: flex-start;
+        gap: 18px;
+        overflow: hidden;
+        color: inherit !important;
+        background:
+          radial-gradient(
+            circle at 92% 10%,
+            rgba(7,37,133,.07),
+            transparent 26%
+          ),
+          linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8faff 100%
+          );
+        border: 1px solid #dce5f3;
+        border-radius: 22px;
+        box-shadow:
+          0 16px 38px rgba(20,35,75,.075),
+          inset 0 1px 0 rgba(255,255,255,.9);
+        text-decoration: none !important;
+        transition:
+          transform .3s ease,
+          box-shadow .3s ease,
+          border-color .3s ease;
+      }
+
+      .layanan-home-card:hover {
+        border-color: #ccd8f2;
+        box-shadow: 0 20px 42px rgba(7,37,133,.13);
+        transform: translateY(-6px);
+      }
+
+      .layanan-home-card-alt {
+        background:
+          radial-gradient(
+            circle at 92% 10%,
+            rgba(248,171,60,.13),
+            transparent 27%
+          ),
+          linear-gradient(
+            145deg,
+            #fffaf3 0%,
+            #ffffff 72%
+          );
+      }
+
+      .layanan-card-number {
+        position: absolute;
+        top: 10px;
+        right: 19px;
+        color: rgba(7,37,133,.055);
+        font-size: 62px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .layanan-card-icon {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: linear-gradient(135deg,#072585,#174bc8);
+        border-radius: 17px;
+        box-shadow: 0 10px 22px rgba(7,37,133,.2);
+        font-size: 23px;
+      }
+
+      .layanan-home-card-alt .layanan-card-icon {
+        background: linear-gradient(135deg,#f8ab3c,#ee8f19);
+        box-shadow: 0 10px 22px rgba(248,171,60,.22);
+      }
+
+      .layanan-card-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .layanan-card-label {
+        display: block;
+        margin-bottom: 5px;
+        color: #072585;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .layanan-home-card-alt .layanan-card-label {
+        color: #a46705;
+      }
+
+      .layanan-card-content h3 {
+        margin: 0 0 7px;
+        color: #202b40;
+        font-size: 18px;
+        font-weight: 760;
+        line-height: 1.4;
+      }
+
+      .layanan-card-content p {
+        margin: 0 0 12px;
+        color: #707b8e;
+        font-size: 12.5px;
+        line-height: 1.7;
+      }
+
+      .layanan-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: #072585;
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .layanan-card-link i {
+        transition: transform .25s ease;
+      }
+
+      .layanan-home-card:hover .layanan-card-link i {
+        transform: translateX(4px);
+      }
+
+      @media (max-width: 991px) {
+        #standar-pelayanan-home {
+          padding: 55px 0 !important;
+        }
+
+        .layanan-editorial-intro {
+          grid-template-columns: 68px minmax(0, 1fr);
+        }
+
+        .layanan-editorial-panel {
+          grid-column: 1 / -1;
+        }
+
+        .layanan-home-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 767px) {
+        #standar-pelayanan-home {
+          padding: 45px 0 !important;
+        }
+
+        .layanan-editorial-intro {
+          margin-bottom: 29px;
+          padding: 22px 18px;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          border-radius: 21px;
+        }
+
+        .layanan-editorial-accent {
+          min-height: 0;
+          padding: 13px 16px;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: row;
+          gap: 10px;
+          border-radius: 14px;
+        }
+
+        .layanan-editorial-accent span {
+          font-size: 23px;
+        }
+
+        .layanan-editorial-accent small {
+          margin-top: 0;
+          font-size: 9px;
+          writing-mode: initial;
+          transform: none;
+        }
+
+        .layanan-editorial-main h2 {
+          font-size: 29px;
+          letter-spacing: -.6px;
+        }
+
+        .layanan-editorial-lead {
+          font-size: 14px;
+          line-height: 1.8;
+        }
+
+        .layanan-editorial-panel {
+          padding: 18px 16px;
+          border-radius: 16px;
+        }
+
+        .layanan-video-card {
+          border-radius: 18px;
+        }
+
+        .layanan-video-top {
+          padding: 16px;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .layanan-video-title h3 {
+          font-size: 15px;
+        }
+
+        .layanan-video-footer {
+          padding: 15px;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .video-official-mark {
+          align-self: flex-start;
+        }
+
+        .layanan-home-grid {
+          margin-top: 20px;
+        }
+
+        .layanan-home-card {
+          min-height: 0;
+          padding: 21px 18px;
+          gap: 14px;
+          border-radius: 17px;
+        }
+
+        .layanan-card-icon {
+          width: 50px;
+          height: 50px;
+          flex-basis: 50px;
+          border-radius: 15px;
+          font-size: 20px;
+        }
+
+        .layanan-card-content h3 {
+          font-size: 16px;
+        }
+      }
+      </style>
+
       <?= $this->render('_edukasi-home', [
             'edukasiUtama' => $edukasiUtama,
         ]) ?>
@@ -1300,6 +2208,43 @@ document.addEventListener('DOMContentLoaded', function () {
               
             </div>
             <!-- End Widget Kepala Dinas -->
+
+            <!-- 🔹 Widget 2: Infografis Carousel (Updated 6 Poster) -->
+            <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="150">
+              <h3><i class="bi bi-graph-up"></i> Laporan Layanan Kekerasan</h3>
+              
+              <div id="infografisCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                
+                <!-- Indicators (6 tombol navigasi bawah) -->
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#infografisCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#infografisCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  
+                </div>
+                
+                <!-- Inner Slides -->
+                <div class="carousel-inner rounded">
+                   <div class="carousel-item active">
+                    <img src="<?= Yii::$app->request->baseUrl ?>/web/uploads/infografis/april.jpeg" class="d-block w-100" alt="Infografis DP3AKB 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="<?= Yii::$app->request->baseUrl ?>/web/uploads/infografis/feb.jpeg" class="d-block w-100" alt="Infografis DP3AKB 1">
+                  </div>
+                  
+                </div>
+                
+                <!-- Controls (Panah Kiri/Kanan) -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#infografisCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#infografisCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <!-- End Widget Infografis -->
 
 
             <!-- 🔹 Widget 2: Infografis Carousel (Updated 6 Poster) -->
@@ -1356,6 +2301,8 @@ document.addEventListener('DOMContentLoaded', function () {
               </div>
             </div>
             <!-- End Widget Infografis -->
+
+
 
             <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="150">
                 <h3><i class="bi bi-clipboard-check"></i> Survei Kepuasan Masyarakat</h3>
