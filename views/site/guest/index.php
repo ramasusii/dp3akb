@@ -2678,15 +2678,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 <a href="#" target="_blank" class="cat-item">
                   <i class="bi bi-file-pdf text-danger me-1"></i> Profil Gender 2022
                 </a>
-                <a href="http://dispppakb.sumutprov.go.id/public/storage/files/9/USUL%20PENETAPAN%20ASET%20DP3A%20DPPKB.pdf" target="_blank" class="cat-item">
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2023.pdf" target="_blank" class="cat-item">
                   <i class="bi bi-file-pdf text-danger me-1"></i> Profil Kekerasan 2023
                 </a>
-                <a href="#" target="_blank" class="cat-item">
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2024.pdf" target="_blank" class="cat-item">
                   <i class="bi bi-file-pdf text-danger me-1"></i> Profil Kekerasan 2024
                 </a>
-                <a href="http://dispppakb.sumutprov.go.id/public/storage/files/9/LHE%20AKIP%202023.pdf" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> LHE AKIP 2023
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2025.pdf" target="_blank" class="cat-item">
+                  <i class="bi bi-file-pdf text-danger me-1"></i> Profil Kekerasan 2025
                 </a>
+                <!-- <a href="http://dispppakb.sumutprov.go.id/public/storage/files/9/LHE%20AKIP%202023.pdf" target="_blank" class="cat-item">
+                  <i class="bi bi-file-pdf text-danger me-1"></i> LHE AKIP 2023
+                </a> -->
               </div>
               
               <!-- <div class="text-center mt-3">
