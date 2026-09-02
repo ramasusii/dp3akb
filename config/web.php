@@ -230,6 +230,10 @@ $config = [
                                 'route'   => '/site/faq',
                             ],
                             [
+                                'pattern' => 'downloads',
+                                'route'   => '/site/file-download',
+                            ],
+                            [
                                 'pattern' => 'edukasi',
                                 'route'   => '/site/edukasi',
                             ],

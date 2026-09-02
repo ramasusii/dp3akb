@@ -495,113 +495,88 @@
 
                     <li class="dropdown">
 
-                        <a href="#" class="dropdown-trigger">
-                            <span>Data &amp; Informasi</span>
+                    <a href="#" class="dropdown-trigger">
+                        <span>Data &amp; Informasi</span>
 
-                            <i class="bi bi-chevron-down toggle-dropdown"></i>
-                        </a>
+                        <i class="bi bi-chevron-down toggle-dropdown"></i>
+                    </a>
 
-                        <ul>
+                    <ul>
 
-                            <li>
-                                <a href="<?= Url::to(['site/pegawai']) ?>">
-                                    Data Pegawai
-                                </a>
-                            </li>
+                        <!-- Data Pegawai -->
+                        <li>
+                            <a href="<?= Url::to(['site/pegawai']) ?>">
+                                Data Pegawai
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="<?= Url::to(['site/daftar-berita']) ?>">
-                                    Berita
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="<?= Url::to(['site/renja']) ?>">
-                                    Renja
-                                </a>
-                            </li>
+                        <!-- Berita -->
+                        <li>
+                            <a href="<?= Url::to(['site/daftar-berita']) ?>">
+                                Berita
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="<?= Url::to(['site/data-statistik']) ?>">
-                                    Data Statistik &amp; Pegawai
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="<?= Url::to(['site/laporan-keuangan']) ?>">
-                                    Laporan Keuangan
-                                </a>
-                            </li>
+                        <!-- Data Statistik & Pegawai -->
+                        <li>
+                            <a href="<?= Url::to(['site/data-statistik']) ?>">
+                                Data Statistik &amp; Pegawai
+                            </a>
+                        </li>
 
-                            <li>
-                                <a href="<?= Url::to(['site/lakip']) ?>">
-                                    Lakip
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="<?= Url::to(['site/renstra']) ?>">
-                                    Renstra
-                                </a>
-                            </li>
+                        <!-- Regulasi -->
+                        <li class="dropdown">
 
-                            <li>
-                                <a href="<?= Url::to(['site/profil-kekerasan']) ?>">
-                                    Profil Kekerasan Perempuan &amp; Anak
-                                </a>
-                            </li>
+                            <a href="#" class="dropdown-trigger">
+                                <span>Regulasi</span>
 
-                            <li>
-                                <a href="<?= Url::to(['site/perjanjian-kinerja']) ?>">
-                                    Perjanjian Kinerja
-                                </a>
-                            </li>
+                                <i class="bi bi-chevron-down toggle-dropdown"></i>
+                            </a>
 
-                            <li class="dropdown">
+                            <ul>
 
-                                <a href="#" class="dropdown-trigger">
-                                    <span>Regulasi</span>
+                                <li>
+                                    <a href="<?= Url::to(['site/uu']) ?>">
+                                        Undang-Undang
+                                    </a>
+                                </li>
 
-                                    <i class="bi bi-chevron-down toggle-dropdown"></i>
-                                </a>
+                                <li>
+                                    <a href="<?= Url::to(['site/pp']) ?>">
+                                        Peraturan Pemerintah
+                                    </a>
+                                </li>
 
-                                <ul>
-                                    <li>
-                                        <a href="<?= Url::to(['site/uu']) ?>">
-                                            Undang-Undang
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a href="<?= Url::to(['site/permen']) ?>">
+                                        Peraturan Menteri
+                                    </a>
+                                </li>
 
-                                    <li>
-                                        <a href="<?= Url::to(['site/pp']) ?>">
-                                            Peraturan Pemerintah
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a href="<?= Url::to(['site/perda']) ?>">
+                                        Peraturan Daerah
+                                    </a>
+                                </li>
 
-                                    <li>
-                                        <a href="<?= Url::to(['site/permen']) ?>">
-                                            Peraturan Menteri
-                                        </a>
-                                    </li>
+                            </ul>
 
-                                    <li>
-                                        <a href="<?= Url::to(['site/perda']) ?>">
-                                            Peraturan Daerah
-                                        </a>
-                                    </li>
-                                </ul>
+                        </li>
 
-                            </li>
 
-                            <li>
-                                <a href="#">
-                                    File Download
-                                </a>
-                            </li>
+                        <!-- Pusat File Download -->
+                        <li>
+                            <a href="<?= Url::to(['site/file-download']) ?>">
+                                File Download
+                            </a>
+                        </li>
 
-                        </ul>
+                    </ul>
 
-                    </li>
+                </li>
 
                     <li class="dropdown">
 

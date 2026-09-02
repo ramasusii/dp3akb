@@ -1826,4 +1826,11 @@ class SiteController extends Controller
         return $this->render('guest/sk-pelayanan-upt');
     }
 
+    public function actionFileDownload()
+    {
+        $this->layout = 'guest';
+
+        return $this->render('guest/file-download');
+    }
+
 }
