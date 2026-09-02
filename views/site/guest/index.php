@@ -2666,31 +2666,84 @@ document.addEventListener('DOMContentLoaded', function () {
 
             <!-- 🔹 Widget 3: File Download (pakai style category-list) -->
             <div class="sidebar-widget categories-widget" data-aos="fade-left" data-aos-delay="200">
-              <h3><i class="bi bi-download"></i> File Download</h3>
-              
-              <div class="category-list">
-                <a href="#" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> Profil Anak Sumut 2022
+            <h3><i class="bi bi-download"></i> File Download</h3>
+            
+            <div class="category-list">
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/profil-anak-sumut-2022.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Anak Sumut 2022
                 </a>
-                <a href="#" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> Data Gender & Anak 2021
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/data-gender-anak-sumut-2021.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Data Gender & Anak 2021
                 </a>
-                <a href="#" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> Profil Gender 2022
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/profil-gender-sumut-2022.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Gender 2022
                 </a>
-                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2023.pdf" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> Profil Kekerasan 2023
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/profil-anak-sumut-2021.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Anak Sumut 2021
                 </a>
-                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2024.pdf" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> Profil Kekerasan 2024
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/data-gender-anak-sumut-2022.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Data Gender & Anak 2022
                 </a>
-                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2025.pdf" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> Profil Kekerasan 2025
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/profil-bangga-kencana-sumut-2025.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Bangga Kencana Sumut 2025
                 </a>
-                <!-- <a href="http://dispppakb.sumutprov.go.id/public/storage/files/9/LHE%20AKIP%202023.pdf" target="_blank" class="cat-item">
-                  <i class="bi bi-file-pdf text-danger me-1"></i> LHE AKIP 2023
-                </a> -->
-              </div>
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2023.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Kekerasan 2023
+                </a>
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2024.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Kekerasan 2024
+                </a>
+
+                <a href="<?= Yii::$app->request->baseUrl ?>/web/dokumen/kekerasan2025.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                Profil Kekerasan 2025
+                </a>
+
+                <!--
+                <a href="http://dispppakb.sumutprov.go.id/public/storage/files/9/LHE%20AKIP%202023.pdf"
+                target="_blank"
+                class="cat-item">
+                <i class="bi bi-file-pdf text-danger me-1"></i>
+                LHE AKIP 2023
+                </a>
+                -->
+
+            </div>
+            </div>
               
               <!-- <div class="text-center mt-3">
                 <a href="#" class="cat-item" style="background: var(--accent-color); color: #fff;">
