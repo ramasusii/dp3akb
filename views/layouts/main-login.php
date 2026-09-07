@@ -23,10 +23,11 @@ dmstr\web\AdminLteAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <title>Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Keluarga Berencana Provinsi Sumatera Utara</title>
+
     <!-- Favicon -->
-    <link href="<?= Yii::$app->request->baseUrl ?>/web/assets-guest/assets/img/favicon.png" rel="icon">
-    <link href="<?= Yii::$app->request->baseUrl ?>/web/assets-guest/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="<?= Yii::$app->request->baseUrl ?>/web/img/logo.png" rel="icon">
+    <link href="<?= Yii::$app->request->baseUrl ?>/web/img/logo.png" rel="apple-touch-icon">
     
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>

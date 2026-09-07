@@ -38,10 +38,12 @@ if (Yii::$app->controller->action->id === 'login') {
     <head>
         <meta charset="<?= Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Keluarga Berencana Provinsi Sumatera Utara</title>
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" media="all">
         
-        <link href="<?= Yii::$app->request->baseUrl ?>/web/assets-guest/assets/img/favicon.png" rel="icon">
-        <link href="<?= Yii::$app->request->baseUrl ?>/web/assets-guest/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="<?= Yii::$app->request->baseUrl ?>/web/img/logo.png" rel="icon">
+        <link href="<?= Yii::$app->request->baseUrl ?>/web/img/logo.png" rel="apple-touch-icon">
         
         <!-- Add this to your layout file or view -->
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">

@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Dinas Pemberdayaan Perempuan dan Perlindungan Anak Provinsi Sumatera Utara</title>
+  <title>Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Keluarga Berencana Provinsi Sumatera Utara</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -788,7 +788,7 @@
           <a href="<?= Yii::$app->homeUrl ?>" class="logo d-flex align-items-center">
               <img src="<?= Yii::$app->request->baseUrl ?>/web/img/logo-diper.png" alt="">
           </a>
-          <p>Dinas Pemberdayaan Perempuan dan Perlindungan Anak Provinsi Sumatera Utara berkomitmen mewujudkan perlindungan, pemenuhan hak, dan pemberdayaan perempuan serta anak yang inklusif dan berkelanjutan.</p>
+          <p>Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Keluarga Berencana Provinsi Sumatera Utara berkomitmen mewujudkan perlindungan, pemenuhan hak, dan pemberdayaan perempuan serta anak yang inklusif dan berkelanjutan.</p>
           <div class="social-links d-flex mt-4">
             <a href="https://instagram.com/dp3asumut" target="_blank"><i class="bi bi-instagram"></i></a>
             <a href="https://facebook.com/dp3asumut" target="_blank"><i class="bi bi-facebook"></i></a>

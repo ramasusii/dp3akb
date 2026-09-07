@@ -2526,7 +2526,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <!-- Nama & Jabatan -->
               <div class="text-center mb-3">
                 <h5 class="mb-1 fw-bold">Dwi Endah Purwanti, SS, M.Si</h5>
-                <p class="text-muted small mb-2">Kepala Dinas PPPAKB Provinsi Sumatera Utara</p>
+                <p class="text-muted small mb-2">Kepala Dinas Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Keluarga Berencana Provinsi Sumatera Utara</p>
               </div>
               
               <!-- Cuitan Box -->
