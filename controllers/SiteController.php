@@ -127,7 +127,10 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             $this->layout = 'guest';
 
-            $currentDateTime = date('Y-m-d H:i:s');
+            $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
             /*
             * Data profil.
@@ -1006,7 +1009,10 @@ class SiteController extends Controller
     {
         $this->layout = 'guest';
 
-        $currentDateTime = date('Y-m-d H:i:s');
+        $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
         $keyword = trim(
             Yii::$app->request->get('q', '')
@@ -1113,7 +1119,10 @@ class SiteController extends Controller
     {
         $this->layout = 'guest';
 
-        $currentDateTime = date('Y-m-d H:i:s');
+        $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
         $berita = BeritaDp3akb::find()
             ->with('kategori')
@@ -1203,7 +1212,10 @@ class SiteController extends Controller
     {
         $this->layout = 'guest';
 
-        $currentDateTime = date('Y-m-d H:i:s');
+        $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
         /*
         * Parameter pencarian dan filter.
@@ -1465,7 +1477,10 @@ class SiteController extends Controller
     {
         $this->layout = 'guest';
 
-        $currentDateTime = date('Y-m-d H:i:s');
+        $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
         /*
         * Cari konten berdasarkan slug.
@@ -1630,7 +1645,10 @@ class SiteController extends Controller
 
     public function actionDownloadEdukasi($slug)
     {
-        $currentDateTime = date('Y-m-d H:i:s');
+        $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
         $konten = KontenEdukasi::find()
             ->where([
@@ -1744,7 +1762,10 @@ class SiteController extends Controller
 
     public function actionBacaEbook($slug)
     {
-        $currentDateTime = date('Y-m-d H:i:s');
+        $currentDateTime = (new \DateTime(
+    'now',
+    new \DateTimeZone('Asia/Jakarta')
+))->format('Y-m-d H:i:s');
 
         $konten = KontenEdukasi::find()
             ->where([
