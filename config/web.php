@@ -146,6 +146,10 @@ $config = [
                                 'route'   => '/site/set-header',
                             ],
                             [
+                                'pattern' => 'pimpinan',
+                                'route'   => '/site/profil-pimpinan',
+                            ],
+                            [
                                 'pattern' => 'SetLayanan',
                                 'route'   => '/site/set-layanan',
                             ],

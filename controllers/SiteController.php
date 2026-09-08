@@ -1854,4 +1854,11 @@ class SiteController extends Controller
         return $this->render('guest/file-download');
     }
 
+    public function actionProfilPimpinan()
+    {
+        $this->layout = 'guest';
+
+        return $this->render('guest/profil-pimpinan');
+    }
+
 }

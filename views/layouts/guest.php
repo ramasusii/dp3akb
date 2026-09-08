@@ -450,6 +450,11 @@
 
                         <ul>
                             <li>
+                                <a href="<?= Url::to(['site/profil-pimpinan']) ?>">
+                                    Pimpinan
+                                </a>
+                            </li>
+                            <li>
                                 <a href="<?= Url::to(['site/sejarah']) ?>">
                                     Sejarah
                                 </a>
