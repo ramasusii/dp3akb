@@ -7,13 +7,17 @@ use app\models\KbgAssessment;
 use app\models\KbgAnswer;
 use app\models\KbgAssessmentLog;
 use app\models\KbgQuestionnaire;
+use app\models\KbgPetugas;
+use app\models\User;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
+use yii\base\DynamicModel;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\web\Response;
 
 class KbgController extends Controller
@@ -29,6 +33,17 @@ class KbgController extends Controller
                         'roles' => ['Developer', 'SuperAdmin', 'Admin', 'PetugasKBG'],
                     ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                    if (Yii::$app->user->isGuest) {
+                        return Yii::$app->response->redirect(
+                            ['/site/kbg-login']
+                        );
+                    }
+
+                    throw new ForbiddenHttpException(
+                        'Anda tidak memiliki akses ke modul Kaji Cepat KBG.'
+                    );
+                },
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -44,9 +59,137 @@ class KbgController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if (!Yii::$app->user->isGuest && !$this->isManager()) {
+            $petugas = KbgPetugas::current();
+
+            if ($petugas === null || (int) $petugas->is_active !== 1) {
+                Yii::$app->user->logout();
+
+                Yii::$app->session->setFlash(
+                    'warning',
+                    'Akses Petugas KBG belum aktif. Silakan hubungi Admin Provinsi.'
+                );
+
+                Yii::$app->response->redirect(['/site/kbg-login']);
+
+                return false;
+            }
+
+            if ((int) $petugas->must_change_password === 1
+                && $action->id !== 'change-password') {
+                Yii::$app->response->redirect([
+                    '/kbg/change-password',
+                ]);
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public function actionChangePassword()
+    {
+        if ($this->isManager()) {
+            return $this->redirect(['index']);
+        }
+
+        $this->layout = 'kbg-mobile';
+
+        $petugas = KbgPetugas::current();
+
+        if ($petugas === null || (int) $petugas->is_active !== 1) {
+            Yii::$app->user->logout();
+
+            return $this->redirect(['/site/kbg-login']);
+        }
+
+        $model = new DynamicModel([
+            'password',
+            'password_repeat',
+        ]);
+
+        $model->addRule(
+            ['password', 'password_repeat'],
+            'required',
+            [
+                'message' => '{attribute} wajib diisi.',
+            ]
+        );
+
+        $model->addRule(
+            ['password'],
+            'string',
+            [
+                'min' => 8,
+                'tooShort' => 'Password minimal 8 karakter.',
+            ]
+        );
+
+        $model->addRule(
+            ['password_repeat'],
+            'compare',
+            [
+                'compareAttribute' => 'password',
+                'message' => 'Konfirmasi password tidak sama.',
+            ]
+        );
+
+        $model->setAttributeLabels([
+            'password' => 'Password Baru',
+            'password_repeat' => 'Ulangi Password Baru',
+        ]);
+
+        if ($model->load(Yii::$app->request->post())
+            && $model->validate()) {
+            $user = User::findOne((int) Yii::$app->user->id);
+
+            if ($user === null) {
+                throw new NotFoundHttpException(
+                    'Akun pengguna tidak ditemukan.'
+                );
+            }
+
+            $user->setPassword($model->password);
+            $user->generateAuthKey();
+
+            if (!$user->save(false)) {
+                Yii::$app->session->setFlash(
+                    'error',
+                    'Password belum berhasil disimpan.'
+                );
+
+                return $this->refresh();
+            }
+
+            $petugas->must_change_password = 0;
+            $petugas->password_changed_at = date('Y-m-d H:i:s');
+            $petugas->save(false);
+
+            Yii::$app->session->setFlash(
+                'success',
+                'Password berhasil dibuat. Selamat datang di Portal Petugas KBG.'
+            );
+
+            return $this->redirect(['index']);
+        }
+
+        return $this->render('change-password', [
+            'model' => $model,
+            'petugas' => $petugas,
+        ]);
+    }
+
     public function actionIndex()
     {
-        $this->layout = 'main';
+        $isManager = $this->isManager();
+        $this->layout = $isManager ? 'main' : 'kbg-mobile';
 
         $query = KbgAssessment::find()
             ->orderBy(['updated_at' => SORT_DESC, 'id' => SORT_DESC]);
@@ -85,7 +228,7 @@ class KbgController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => $isManager ? 20 : 10,
             ],
         ]);
 
@@ -99,6 +242,9 @@ class KbgController extends Controller
                 ->count(),
             'submitted' => (int) (clone $statsQuery)
                 ->andWhere(['status' => KbgAssessment::STATUS_SUBMITTED])
+                ->count(),
+            'revision' => (int) (clone $statsQuery)
+                ->andWhere(['status' => KbgAssessment::STATUS_REVISION])
                 ->count(),
             'verified' => (int) (clone $statsQuery)
                 ->andWhere(['status' => KbgAssessment::STATUS_VERIFIED])
@@ -118,10 +264,12 @@ class KbgController extends Controller
 
         $this->applyScope($regencies);
 
-        return $this->render('index', [
+        $view = $isManager ? 'index' : 'petugas-index';
+
+        return $this->render($view, [
             'dataProvider' => $dataProvider,
             'stats' => $stats,
-            'isManager' => $this->isManager(),
+            'isManager' => $isManager,
             'regencies' => $regencies->column(),
             'filters' => [
                 'q' => $search,
@@ -136,7 +284,12 @@ class KbgController extends Controller
     {
         $model = new KbgAssessment();
         $model->enumerator_id = (int) Yii::$app->user->id;
-        $model->enumerator_name = Yii::$app->user->identity->username;
+
+        $petugas = KbgPetugas::current();
+
+        $model->enumerator_name = $petugas !== null
+            ? $petugas->getDisplayName()
+            : Yii::$app->user->identity->username;
         $model->assessment_datetime = date('Y-m-d H:i:s');
         $model->status = KbgAssessment::STATUS_DRAFT;
         $model->current_step = 1;
@@ -168,7 +321,7 @@ class KbgController extends Controller
 
     public function actionForm($id, $step = 1)
     {
-        $this->layout = 'main';
+        $this->layout = $this->isManager() ? 'main' : 'kbg-mobile';
 
         $model = $this->findAccessibleModel($id);
 
@@ -354,7 +507,7 @@ class KbgController extends Controller
 
     public function actionView($id)
     {
-        $this->layout = 'main';
+        $this->layout = $this->isManager() ? 'main' : 'kbg-mobile';
 
         $model = $this->findAccessibleModel($id);
         $answerMap = $model->getAnswerMap();
@@ -513,7 +666,7 @@ class KbgController extends Controller
 
     public function actionMap()
     {
-        $this->layout = 'main';
+        $this->layout = $this->isManager() ? 'main' : 'kbg-mobile';
 
         $query = KbgAssessment::find()
             ->where(['not', ['latitude' => null]])

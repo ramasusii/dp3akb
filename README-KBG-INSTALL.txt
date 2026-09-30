@@ -1,160 +1,79 @@
-DP3AKB - MODUL KAJI CEPAT KBG & AUDIT KESELAMATAN
-=========================================================
-Tanggal paket: 24 September 2026
+DP3AKB - KAJI CEPAT KBG MOBILE V3
+=================================
 
-TUJUAN
-------
-Modul ini mengimplementasikan instrumen:
-"Kaji Cepat Bersama Risiko Kekerasan Berbasis Gender dan Audit Keselamatan"
-langsung pada aplikasi Yii2 DP3AKB.
+FITUR V3
+--------
+1. Portal Petugas KBG mobile friendly.
+2. Login petugas menggunakan NIP (kolom tbl_pegawai.nip).
+3. Semua pegawai aktif yang memiliki NIP disiapkan sebagai calon akun.
+4. Default akun Petugas KBG NONAKTIF.
+5. Admin Provinsi dapat memilih 5 orang / beberapa orang lalu klik Aktifkan Terpilih.
+6. Saat diaktifkan, sistem membuat password sementara dan menampilkannya SEKALI kepada admin.
+7. Petugas wajib mengganti password saat login pertama.
+8. Admin dapat menonaktifkan akses tanpa menghapus assessment lama.
+9. Admin dapat mengaktifkan kembali dan reset password petugas.
+10. Nama petugas pada assessment diambil dari tbl_pegawai, bukan NIP.
 
-Data disimpan ke database DP3AKB sendiri. Tidak menggunakan penyimpanan KoboToolbox.
+LOGIN PETUGAS
+-------------
+/site/kbg-login
 
+Username : NIP
+Password : password sementara dari Admin Provinsi
 
-FILE BARU
----------
-controllers/KbgController.php
-
-models/KbgAssessment.php
-models/KbgAnswer.php
-models/KbgAssessmentLog.php
-models/KbgQuestionnaire.php
-
-views/kbg/index.php
-views/kbg/form.php
-views/kbg/view.php
-views/kbg/map.php
-views/kbg/print.php
-views/kbg/_question.php
-views/kbg/_styles.php
-
-database/KBG-ADDON-2026-09-24.sql
+Setelah login pertama, petugas otomatis diminta membuat password baru.
 
 
-FITUR
------
-1. Dashboard assessment.
-2. 7 tahap formulir responsive/mobile-first.
-3. 194 field/pertanyaan sesuai struktur instrumen sumber.
-4. Conditional question.
-5. Autosave draft.
-6. Simpan & lanjutkan per tahap.
-7. Resume draft.
-8. Status Draft / Dikirim / Perlu Revisi / Terverifikasi.
-9. Verifikasi admin + catatan revisi.
-10. Pengambilan koordinat GPS browser.
-11. Peta assessment menggunakan Leaflet + OpenStreetMap.
-12. Search/filter data.
-13. Export CSV.
-14. Cetak / Simpan PDF melalui browser.
-15. Flag perhatian operasional untuk membantu peninjauan data.
-16. Scope data: PetugasKBG hanya melihat assessment miliknya.
-17. Admin/SuperAdmin/Developer melihat seluruh assessment.
-18. Log aktivitas dasar.
+INSTALASI JIKA MODUL KBG V2 SUDAH TERPASANG
+-------------------------------------------
+1. Backup project dan database.
+2. Extract ZIP ini ke root project DP3AKB dan replace file yang diminta.
+3. Import HANYA:
+   database/KBG-PETUGAS-AKUN-V3-2026-09-29.sql
+4. Login Admin.
+5. Buka menu Kaji Cepat KBG > Petugas KBG.
+6. Pilih 5 pegawai lalu klik Aktifkan Terpilih.
+7. Salin NIP + password sementara dan berikan kepada masing-masing petugas.
 
 
-PENTING TENTANG FLAG SISTEM
----------------------------
-Flag "Perlu Tindak Lanjut", "Perlu Perhatian", dll adalah indikator bantu
-berdasarkan jawaban instrumen. Flag tersebut BUKAN penetapan kasus,
-diagnosis, atau pengganti verifikasi petugas yang berwenang.
+INSTALASI JIKA MODUL KBG BELUM PERNAH TERPASANG
+-----------------------------------------------
+1. Backup project dan database.
+2. Extract ZIP ke root project.
+3. Import berurutan:
+   a. database/KBG-ADDON-2026-09-24.sql
+   b. database/KBG-PETUGAS-AKUN-V3-2026-09-29.sql
+4. Login Admin dan aktifkan petugas dari menu Petugas KBG.
 
 
-CARA PASANG - SOURCE
---------------------
-Jika memakai ZIP full source:
-- backup project server terlebih dahulu.
-- upload/replace source seperti workflow Git biasa.
-
-Jika memakai ZIP add-on:
-copy folder berikut ke root project:
-- controllers/
-- models/
-- views/kbg/
-- database/
+CATATAN KEAMANAN
+----------------
+- Pegawai yang belum diaktifkan tidak dapat login ke Portal KBG.
+- Akun khusus KBG memakai status user=0 saat belum aktif.
+- Password sementara tidak disimpan dalam plaintext.
+- Password sementara hanya tampil satu kali setelah aktivasi/reset.
+- Petugas wajib mengganti password pertama.
+- Menonaktifkan petugas tidak menghapus data assessment yang pernah dibuat.
+- Jika NIP sudah merupakan username akun sistem lama, modul tidak mengambil alih password akun tersebut.
 
 
-CARA PASANG - DATABASE
-----------------------
-1. Backup database online.
-2. Buka Adminer.
-3. Import:
-   database/KBG-ADDON-2026-09-24.sql
-
-SQL bersifat incremental:
-- tidak DROP tabel lama;
-- tidak mengubah data lama;
-- membuat tabel kbg_*;
-- menambah permission RBAC KBG;
-- menambah menu backend Kaji Cepat KBG.
-
-
-ROLE
-----
-Admin dan SuperAdmin mendapatkan akses KBG dari SQL.
-
-Role baru:
-PetugasKBG
-
-Role ini TIDAK otomatis diberikan ke user.
-Assign melalui RBAC kepada akun petugas lapangan jika diperlukan.
-
-
-MENU BACKEND
-------------
-Kaji Cepat KBG
-├── Dashboard & Data
-├── Assessment Baru
-└── Peta Assessment
-
-
-TABEL BARU
-----------
-kbg_assessment
-- record utama assessment
-- status, petugas, lokasi, koordinat, progress, verifikasi
-
-kbg_answer
-- jawaban seluruh pertanyaan
-- satu record per pertanyaan per assessment
-- mendukung text, number, radio, checkbox/multi-value
-
-kbg_assessment_log
-- jejak create/save/submit/verify/revision
-
-
-CATATAN PRIVASI
----------------
-Instrumen memuat nama responden dan informasi yang dapat berkaitan
-dengan kekerasan. Modul ditempatkan di area login backend.
-Jangan membuka route KBG sebagai halaman guest/public.
-
-
-SETELAH DEPLOY
+STRUKTUR AKSES
 --------------
-1. Login sebagai Admin.
-2. Buka menu Kaji Cepat KBG.
-3. Buat satu assessment uji.
-4. Isi sampai tahap 3 dan uji "Ambil Lokasi".
-5. Uji autosave dengan reload halaman.
-6. Selesaikan form, kirim untuk verifikasi.
-7. Login Admin dan uji Verifikasi / Revisi.
-8. Uji Peta Assessment.
-9. Uji Export CSV dan Cetak.
+ADMIN / SUPERADMIN / DEVELOPER
+- Dashboard KBG
+- Seluruh assessment
+- Verifikasi / revisi
+- Peta
+- Export
+- Kelola Petugas KBG
+- Aktifkan/nonaktifkan/reset password
 
+PETUGASKBG
+- Login mobile dengan NIP
+- Assessment baru
+- Draft Saya
+- Riwayat Saya
+- Peta Saya
+- Submit assessment
+- Ganti password pertama
 
-DEPENDENSI EKSTERNAL
---------------------
-Peta memakai:
-- Leaflet 1.9.4
-- OpenStreetMap tile
-
-Tidak membutuhkan API key.
-Jika internet pengguna tidak tersedia, formulir tetap dapat digunakan
-tetapi peta dasar Leaflet/OpenStreetMap tidak akan dimuat.
-
-
-TIDAK DIUBAH
-------------
-Modul ini tidak memodifikasi SiteController, layout guest, halaman publik,
-atau tabel lama DP3AKB.

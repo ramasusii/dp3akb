@@ -77,10 +77,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'kbg-logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'kbg-logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -90,6 +90,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'kbg-logout' => ['post'],
                 ],
             ],
         ];
@@ -393,18 +394,79 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
+            $isPetugasKbg = Yii::$app->user->can('PetugasKBG');
+            $isKbgManager = Yii::$app->user->can('Developer')
+                || Yii::$app->user->can('SuperAdmin')
+                || Yii::$app->user->can('Admin');
+
+            if ($isPetugasKbg && !$isKbgManager) {
+                return $this->redirect(['/kbg/index']);
+            }
+
             return $this->goHome();
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $isPetugasKbg = Yii::$app->user->can('PetugasKBG');
+            $isKbgManager = Yii::$app->user->can('Developer')
+                || Yii::$app->user->can('SuperAdmin')
+                || Yii::$app->user->can('Admin');
+
+            if ($isPetugasKbg && !$isKbgManager) {
+                return $this->redirect(['/kbg/index']);
+            }
+
             return $this->goBack();
         }
 
         $model->password = '';
+
         return $this->render('login', [
             'model' => $model,
         ]);
+    }
+
+    public function actionKbgLogin()
+    {
+        $this->layout = 'kbg-mobile';
+
+        if (!Yii::$app->user->isGuest) {
+            if ($this->hasKbgAccess()) {
+                return $this->redirect(['/kbg/index']);
+            }
+
+            Yii::$app->user->logout();
+        }
+
+        $model = new LoginForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            if ($this->hasKbgAccess()) {
+                return $this->redirect(['/kbg/index']);
+            }
+
+            Yii::$app->user->logout();
+
+            $model->addError(
+                'username',
+                'Akun ini belum memiliki akses sebagai Petugas KBG.'
+            );
+        }
+
+        $model->password = '';
+
+        return $this->render('kbg-login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionKbgLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->redirect(['/site/kbg-login']);
     }
 
     public function actionLogout()
@@ -412,6 +474,14 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    private function hasKbgAccess()
+    {
+        return Yii::$app->user->can('PetugasKBG')
+            || Yii::$app->user->can('Developer')
+            || Yii::$app->user->can('SuperAdmin')
+            || Yii::$app->user->can('Admin');
     }
 
    
