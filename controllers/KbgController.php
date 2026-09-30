@@ -172,12 +172,22 @@ class KbgController extends Controller
             $petugas->password_changed_at = date('Y-m-d H:i:s');
             $petugas->save(false);
 
+            /*
+             * Password pertama mengganti auth_key user.
+             * Refresh identity + remember-me cookie agar sesi Petugas KBG
+             * tidak dianggap logout pada request berikutnya.
+             */
+            Yii::$app->user->switchIdentity(
+                $user,
+                3600 * 24 * 30
+            );
+
             Yii::$app->session->setFlash(
                 'success',
                 'Password berhasil dibuat. Selamat datang di Portal Petugas KBG.'
             );
 
-            return $this->redirect(['index']);
+            return $this->redirect(['/kbg/index']);
         }
 
         return $this->render('change-password', [

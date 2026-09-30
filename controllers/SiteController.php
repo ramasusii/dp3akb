@@ -125,6 +125,21 @@ class SiteController extends Controller
 
    public function actionIndex()
     {
+        /*
+         * Petugas KBG memiliki portal sendiri. Jika karena returnUrl/goHome
+         * petugas sampai ke beranda utama, arahkan kembali ke portal KBG.
+         */
+        if (!Yii::$app->user->isGuest) {
+            $isPetugasKbg = Yii::$app->user->can('PetugasKBG');
+            $isKbgManager = Yii::$app->user->can('Developer')
+                || Yii::$app->user->can('SuperAdmin')
+                || Yii::$app->user->can('Admin');
+
+            if ($isPetugasKbg && !$isKbgManager) {
+                return $this->redirect(['/kbg/index']);
+            }
+        }
+
         if (Yii::$app->user->isGuest) {
             $this->layout = 'guest';
 
