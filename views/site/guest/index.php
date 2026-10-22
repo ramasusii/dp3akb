@@ -364,6 +364,524 @@ $getNamaKategori = function ($berita) {
     }
 }
 </style>
+
+<style>
+/* ==========================================================
+   SK STANDAR PELAYANAN 2026
+========================================================== */
+
+.sp2026-section {
+    position: relative;
+    margin: 32px 0 45px;
+    padding: 28px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 95% 0%,
+            rgba(12, 56, 160, .06),
+            transparent 28%
+        ),
+        #ffffff;
+    border: 1px solid #dce5f3;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(26, 48, 88, .08);
+}
+
+.sp2026-section::before {
+    position: absolute;
+    top: 0;
+    left: 28px;
+    right: 28px;
+    height: 4px;
+    content: "";
+    background: linear-gradient(
+        90deg,
+        #0a2c84 0%,
+        #164ebc 65%,
+        #efa52d 100%
+    );
+    border-radius: 0 0 5px 5px;
+}
+
+
+/* HEADER */
+
+.sp2026-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    gap: 28px;
+    padding: 20px 4px 28px;
+    align-items: center;
+}
+
+.sp2026-kicker {
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
+    gap: 10px;
+    color: #153b94;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.15px;
+    text-transform: uppercase;
+}
+
+.sp2026-kicker-line {
+    width: 31px;
+    height: 2px;
+    background: #efa52d;
+}
+
+.sp2026-header h2 {
+    margin: 0 0 13px;
+    color: #17243d;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 820;
+    line-height: 1.15;
+    letter-spacing: -.7px;
+}
+
+.sp2026-header h2 span {
+    display: block;
+    color: #0c3593;
+}
+
+.sp2026-header p {
+    max-width: 620px;
+    margin: 0;
+    color: #718097;
+    font-size: 12.5px;
+    line-height: 1.8;
+}
+
+.sp2026-meta {
+    display: flex;
+    margin-top: 19px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sp2026-meta span {
+    display: inline-flex;
+    padding: 7px 10px;
+    align-items: center;
+    gap: 6px;
+    color: #44536a;
+    background: #f6f8fc;
+    border: 1px solid #e2e8f2;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.sp2026-meta i {
+    color: #0a3695;
+}
+
+
+/* DOCUMENT BOX */
+
+.sp2026-document-box {
+    display: flex;
+    padding: 18px;
+    align-items: center;
+    gap: 13px;
+    background:
+        linear-gradient(
+            145deg,
+            #f7f9fe,
+            #ffffff
+        );
+    border: 1px solid #dce4f1;
+    border-radius: 20px;
+}
+
+.sp2026-document-icon {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #082a82,
+        #1552c9
+    );
+    border-radius: 14px;
+    font-size: 20px;
+}
+
+.sp2026-document-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.sp2026-document-info span {
+    display: block;
+    margin-bottom: 3px;
+    color: #8a96a7;
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: .75px;
+}
+
+.sp2026-document-info strong {
+    display: block;
+    color: #26334b;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.sp2026-download-main {
+    display: flex;
+    min-width: 120px;
+    padding: 10px 12px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #ffffff !important;
+    background: #0a3594;
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: .25s ease;
+}
+
+.sp2026-download-main:hover {
+    color: #ffffff !important;
+    background: #082776;
+    transform: translateY(-2px);
+}
+
+.sp2026-download-main i {
+    font-size: 16px;
+}
+
+.sp2026-download-main span {
+    line-height: 1.15;
+}
+
+.sp2026-download-main small {
+    display: block;
+    margin-bottom: 2px;
+    opacity: .66;
+    font-size: 7px;
+}
+
+.sp2026-download-main span {
+    font-size: 9px;
+    font-weight: 750;
+}
+
+
+/* GROUP */
+
+.sp2026-group {
+    margin-top: 11px;
+    padding: 24px 0;
+    border-top: 1px solid #e5eaf2;
+}
+
+.sp2026-group-heading {
+    display: flex;
+    margin-bottom: 18px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.sp2026-group-label {
+    display: block;
+    margin-bottom: 3px;
+    color: #0c3593;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sp2026-group-heading h3 {
+    margin: 0;
+    color: #28344b;
+    font-size: 19px;
+    font-weight: 780;
+}
+
+.sp2026-group-number {
+    display: flex;
+    min-width: 54px;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #0b3595;
+    background: #eef3ff;
+    border: 1px solid #dae5fb;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 850;
+    line-height: 1;
+}
+
+.sp2026-group-number span {
+    margin-top: 4px;
+    color: #748198;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+
+/* GRID */
+
+.sp2026-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+
+/* CARD */
+
+.sp2026-card {
+    position: relative;
+    display: flex;
+    min-height: 145px;
+    padding: 17px;
+    align-items: flex-start;
+    gap: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e0e6f0;
+    border-radius: 17px;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.sp2026-card:hover {
+    border-color: #cad8f4;
+    box-shadow: 0 15px 28px rgba(13, 48, 126, .09);
+    transform: translateY(-3px);
+}
+
+.sp2026-card-number {
+    position: absolute;
+    top: 9px;
+    right: 12px;
+    color: #e4e9f3;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.sp2026-card-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #0a2f8f,
+        #1755c8
+    );
+    border-radius: 12px;
+    font-size: 16px;
+    box-shadow: 0 8px 18px rgba(12, 53, 147, .17);
+}
+
+.sp2026-card-uptd .sp2026-card-icon {
+    color: #17439d;
+    background: #eef3ff;
+    box-shadow: none;
+}
+
+.sp2026-card-content {
+    min-width: 0;
+    padding-right: 3px;
+}
+
+.sp2026-card-content > span {
+    display: block;
+    margin-bottom: 4px;
+    color: #8b96a7;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.sp2026-card h4 {
+    margin: 0 0 6px;
+    padding-right: 16px;
+    color: #253149;
+    font-size: 13px;
+    font-weight: 790;
+    line-height: 1.35;
+}
+
+.sp2026-card p {
+    margin: 0;
+    color: #778398;
+    font-size: 9.5px;
+    line-height: 1.6;
+}
+
+
+/* FOOTER */
+
+.sp2026-footer {
+    display: flex;
+    margin-top: 4px;
+    padding: 17px 18px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #f5f8fe;
+    border: 1px solid #dde6f6;
+    border-radius: 17px;
+}
+
+.sp2026-footer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sp2026-footer-icon {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    align-items: center;
+    justify-content: center;
+    color: #10714a;
+    background: #e8f8f1;
+    border-radius: 11px;
+}
+
+.sp2026-footer strong {
+    display: block;
+    margin-bottom: 2px;
+    color: #2c3950;
+    font-size: 10.5px;
+}
+
+.sp2026-footer p {
+    max-width: 580px;
+    margin: 0;
+    color: #7c8798;
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+.sp2026-footer-download {
+    display: inline-flex;
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    align-items: center;
+    gap: 7px;
+    color: #0a3594 !important;
+    background: #ffffff;
+    border: 1px solid #ccdaf5;
+    border-radius: 11px;
+    font-size: 9.5px;
+    font-weight: 760;
+    text-decoration: none !important;
+    transition: .25s ease;
+}
+
+.sp2026-footer-download:hover {
+    color: #ffffff !important;
+    background: #0a3594;
+    border-color: #0a3594;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 991px) {
+
+    .sp2026-header {
+        grid-template-columns: 1fr;
+    }
+
+    .sp2026-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+
+    .sp2026-section {
+        margin-top: 24px;
+        padding: 20px 16px;
+        border-radius: 22px;
+    }
+
+    .sp2026-section::before {
+        left: 16px;
+        right: 16px;
+    }
+
+    .sp2026-header {
+        padding-top: 15px;
+        gap: 20px;
+    }
+
+    .sp2026-header h2 {
+        font-size: 27px;
+    }
+
+    .sp2026-document-box {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .sp2026-download-main {
+        width: 100%;
+    }
+
+    .sp2026-group-heading {
+        align-items: flex-start;
+    }
+
+    .sp2026-group-heading h3 {
+        font-size: 17px;
+    }
+
+    .sp2026-group-number {
+        min-width: 48px;
+        height: 48px;
+    }
+
+    .sp2026-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sp2026-card {
+        min-height: 0;
+    }
+
+    .sp2026-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .sp2026-footer-download {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
 <main class="main">
     <section
     id="hero-slider"
@@ -1370,6 +1888,426 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
 
           </div>
+
+          <div class="sp2026-section" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- HEADER -->
+    <div class="sp2026-header">
+
+        <div class="sp2026-header-content">
+
+            <div class="sp2026-kicker">
+                <span class="sp2026-kicker-line"></span>
+                <span>Dokumen Resmi · Standar Pelayanan 2026</span>
+            </div>
+
+            <h2>
+                Standar Pelayanan
+                <span>DP3AKB Provinsi Sumatera Utara</span>
+            </h2>
+
+            <p>
+                Standar pelayanan resmi sebagai acuan pemberian layanan
+                kepada masyarakat dan instansi pada Dinas Pemberdayaan
+                Perempuan, Perlindungan Anak dan Keluarga Berencana
+                Provinsi Sumatera Utara.
+            </p>
+
+            <div class="sp2026-meta">
+
+                <span>
+                    <i class="bi bi-patch-check-fill"></i>
+                    Dokumen Resmi
+                </span>
+
+                <span>
+                    <i class="bi bi-calendar3"></i>
+                    Tahun 2026
+                </span>
+
+                <span>
+                    <i class="bi bi-grid-3x3-gap-fill"></i>
+                    9 Layanan
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sp2026-document-box">
+
+            <div class="sp2026-document-icon">
+                <i class="bi bi-file-earmark-text-fill"></i>
+            </div>
+
+            <div class="sp2026-document-info">
+                <span>KEPUTUSAN GUBERNUR SUMATERA UTARA</span>
+
+                <strong>
+                    Penetapan Standar Pelayanan DP3AKB
+                    Provinsi Sumatera Utara Tahun 2026
+                </strong>
+            </div>
+
+            <a
+                href="<?= Yii::$app->request->baseUrl ?>/web/uploads/sk-pelayanan/sk-standar-pelayanan-dp3akb-2026.pdf"
+                class="sp2026-download-main"
+                download
+            >
+                <i class="bi bi-download"></i>
+
+                <span>
+                    <small>Dokumen Lengkap</small>
+                    Download SK
+                </span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         3 LAYANAN DINAS
+    ====================================================== -->
+    <div class="sp2026-group">
+
+        <div class="sp2026-group-heading">
+
+            <div>
+                <span class="sp2026-group-label">
+                    Layanan Dinas
+                </span>
+
+                <h3>
+                    Pelayanan Informasi &amp; Fasilitasi
+                </h3>
+            </div>
+
+            <div class="sp2026-group-number">
+                03
+                <span>Layanan</span>
+            </div>
+
+        </div>
+
+
+        <div class="sp2026-grid sp2026-grid-three">
+
+            <!-- 01 -->
+            <div class="sp2026-card">
+
+                <div class="sp2026-card-number">
+                    01
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-mic-fill"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>Layanan Dinas</span>
+
+                    <h4>
+                        Permintaan Narasumber
+                    </h4>
+
+                    <p>
+                        Fasilitasi permohonan narasumber untuk
+                        kegiatan instansi maupun organisasi.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+            <div class="sp2026-card">
+
+                <div class="sp2026-card-number">
+                    02
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-megaphone-fill"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>Layanan Dinas</span>
+
+                    <h4>
+                        Permintaan Sosialisasi
+                    </h4>
+
+                    <p>
+                        Pelayanan sosialisasi program dan kebijakan
+                        bidang PPPA serta Keluarga Berencana.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+            <div class="sp2026-card">
+
+                <div class="sp2026-card-number">
+                    03
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-database-fill"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>Layanan Dinas</span>
+
+                    <h4>
+                        Permintaan Data
+                    </h4>
+
+                    <p>
+                        Pelayanan permintaan informasi dan data
+                        publik sesuai ketentuan yang berlaku.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         6 LAYANAN UPTD PPA
+    ====================================================== -->
+    <div class="sp2026-group sp2026-group-uptd">
+
+        <div class="sp2026-group-heading">
+
+            <div>
+                <span class="sp2026-group-label">
+                    Layanan Perlindungan
+                </span>
+
+                <h3>
+                    Pelayanan UPTD Perlindungan Perempuan &amp; Anak
+                </h3>
+            </div>
+
+            <div class="sp2026-group-number">
+                06
+                <span>Layanan</span>
+            </div>
+
+        </div>
+
+
+        <div class="sp2026-grid">
+
+            <!-- 04 -->
+            <div class="sp2026-card sp2026-card-uptd">
+
+                <div class="sp2026-card-number">
+                    04
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-headset"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>UPTD PPA</span>
+
+                    <h4>
+                        Pengaduan Masyarakat
+                    </h4>
+
+                    <p>
+                        Penerimaan dan identifikasi awal pengaduan
+                        kasus perempuan dan anak.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 05 -->
+            <div class="sp2026-card sp2026-card-uptd">
+
+                <div class="sp2026-card-number">
+                    05
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>UPTD PPA</span>
+
+                    <h4>
+                        Penjangkauan Korban
+                    </h4>
+
+                    <p>
+                        Penjangkauan penerima manfaat yang
+                        membutuhkan layanan perlindungan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 06 -->
+            <div class="sp2026-card sp2026-card-uptd">
+
+                <div class="sp2026-card-number">
+                    06
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-folder2-open"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>UPTD PPA</span>
+
+                    <h4>
+                        Pengelolaan Kasus
+                    </h4>
+
+                    <p>
+                        Pengelolaan dan koordinasi tindak lanjut
+                        kasus sesuai kebutuhan penerima manfaat.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 07 -->
+            <div class="sp2026-card sp2026-card-uptd">
+
+                <div class="sp2026-card-number">
+                    07
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-house-heart-fill"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>UPTD PPA</span>
+
+                    <h4>
+                        Penampungan Sementara
+                    </h4>
+
+                    <p>
+                        Penyediaan tempat perlindungan sementara
+                        berdasarkan hasil asesmen kebutuhan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 08 -->
+            <div class="sp2026-card sp2026-card-uptd">
+
+                <div class="sp2026-card-number">
+                    08
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>UPTD PPA</span>
+
+                    <h4>
+                        Mediasi
+                    </h4>
+
+                    <p>
+                        Fasilitasi proses mediasi sesuai kebutuhan
+                        dan ketentuan penanganan kasus.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- 09 -->
+            <div class="sp2026-card sp2026-card-uptd">
+
+                <div class="sp2026-card-number">
+                    09
+                </div>
+
+                <div class="sp2026-card-icon">
+                    <i class="bi bi-person-hearts"></i>
+                </div>
+
+                <div class="sp2026-card-content">
+                    <span>UPTD PPA</span>
+
+                    <h4>
+                        Pendampingan Korban
+                    </h4>
+
+                    <p>
+                        Pendampingan penerima manfaat sesuai
+                        kebutuhan perlindungan dan pemulihan.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div class="sp2026-footer">
+
+        <div class="sp2026-footer-info">
+
+            <div class="sp2026-footer-icon">
+                <i class="bi bi-shield-check"></i>
+            </div>
+
+            <div>
+                <strong>
+                    Standar Pelayanan Resmi DP3AKB Provsu
+                </strong>
+
+                <p>
+                    Detail persyaratan, mekanisme, jangka waktu,
+                    produk pelayanan, jaminan pelayanan, dan
+                    ketentuan lainnya tersedia pada dokumen SK.
+                </p>
+            </div>
+
+        </div>
+
+        <a
+            href="<?= Yii::$app->request->baseUrl ?>/web/uploads/sk-pelayanan/sk-standar-pelayanan-dp3akb-2026.pdf"
+            class="sp2026-footer-download"
+            download
+        >
+            <i class="bi bi-file-earmark-arrow-down"></i>
+            Download SK Lengkap
+        </a>
+
+    </div>
+
+</div>
 
           <div class="layanan-video-card" data-aos="fade-up" data-aos-delay="150">
             <div class="layanan-video-top">
