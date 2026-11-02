@@ -509,11 +509,11 @@
                     <ul>
 
                         <!-- Data Pegawai -->
-                        <li>
+                        <!-- <li>
                             <a href="<?= Url::to(['site/pegawai']) ?>">
                                 Data Pegawai
                             </a>
-                        </li>
+                        </li> -->
 
 
                         <!-- Berita -->
