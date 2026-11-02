@@ -360,7 +360,7 @@ $getWhatsappUrl = function ($nomor) {
 
                                         </span>
 
-                                        <p class="dept">
+                                        <!-- <p class="dept">
 
                                             <i class="bi bi-id-card"></i>
 
@@ -372,7 +372,7 @@ $getWhatsappUrl = function ($nomor) {
                                                 )
                                                 : '-' ?>
 
-                                        </p>
+                                        </p> -->
 
                                         <div class="expertise">
 
@@ -596,7 +596,7 @@ $getWhatsappUrl = function ($nomor) {
 
                                                             <tbody>
 
-                                                                <tr>
+                                                                <!-- <tr>
 
                                                                     <th
                                                                         style="width: 35%;"
@@ -618,7 +618,7 @@ $getWhatsappUrl = function ($nomor) {
 
                                                                     </td>
 
-                                                                </tr>
+                                                                </tr> -->
 
                                                                 <tr>
 
